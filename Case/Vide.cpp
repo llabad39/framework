@@ -4,6 +4,6 @@ bool Vide::isEmpty(){
   return true;
 }
 
-bool Vide::moveTo(){
+bool Vide::moveTo(Case &c){
   return true;
 }

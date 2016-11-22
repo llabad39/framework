@@ -2,8 +2,7 @@
 #define CASE
 class Case{
 public :
-  virtual ~Case()=0;
   virtual bool isEmpty()=0;
-  virtual bool moveTo(Case c)=0;
+  virtual bool moveTo(Case &c)=0;
 };
 #endif

@@ -7,12 +7,19 @@ bool Chiffre::isEmpty(){
 int Chiffre::getVal(){
   return this->val;
 }
-bool moveTo(Chiffre c){
-  if(c.getVal()==this.val)
-    return this.fusion(c);
+bool Chiffre::moveTo(Chiffre &c){
+  return this->fusion(c);
+}
+
+bool Chiffre::fusion(Chiffre &c){
+  if(c.getVal()==this->val){
+    this->val = val*2;
+    return true;
+  }
   else
     return false;
+  
 }
-bool Chiffre::moveTo(Case c){
+bool Chiffre::moveTo(Case &c){
   return false;
 }

@@ -7,6 +7,6 @@ class Vide : public Case{
 public :
   Vide(){}
   virtual bool isEmpty();
-  virtual bool moveTo(Case C);
+  virtual bool moveTo(Case &c);
 };
 #endif
