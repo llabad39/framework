@@ -4,6 +4,13 @@ bool Chiffre::isEmpty(){
   return false;
 }
 
+Chiffre::Chiffre():aFus(false){
+  int al = rand()%5;
+  if(al==4)
+    val = 4;
+  else
+    val = 2;
+}
 int Chiffre::getVal(){
   return this->val;
 }
@@ -20,6 +27,13 @@ bool Chiffre::fusion(Chiffre &c){
     return false;
   
 }
+void Chiffre::affiche(){
+  cout << "val" ;
+}
 bool Chiffre::moveTo(Case &c){
   return false;
+}
+
+void Chiffre::endTurn(){
+  aFus=false;
 }
