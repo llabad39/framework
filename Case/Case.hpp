@@ -6,5 +6,6 @@ public :
   virtual bool moveTo(Case &c)=0;
   virtual void endTurn(){};
   virtual void affiche()=0;
+  
 };
 #endif
