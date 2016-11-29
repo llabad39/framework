@@ -3,6 +3,7 @@
 #include "Case.hpp"
 #include <cstdlib>
 #include <iostream>
+#include <ctime>
 
 using namespace std;
 class Chiffre : public Case{

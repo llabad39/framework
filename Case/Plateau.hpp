@@ -9,9 +9,10 @@ public :
   Plateau(int taille);
   int getTaille();
   void affiche();
-  void setCase(x,y);
+  Case& operator()(int x,int y);
+  
 private :
-  vector<vector<Case*>> plateau;
+  vector<vector<shared_ptr<Case>>> plateau;
   int taille;
 };
 

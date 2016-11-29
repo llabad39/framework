@@ -5,6 +5,7 @@ bool Chiffre::isEmpty(){
 }
 
 Chiffre::Chiffre():aFus(false){
+  srand(time(0));
   int al = rand()%5;
   if(al==4)
     val = 4;
@@ -28,7 +29,7 @@ bool Chiffre::fusion(Chiffre &c){
   
 }
 void Chiffre::affiche(){
-  cout << "val" ;
+  cout << val ;
 }
 bool Chiffre::moveTo(Case &c){
   return false;
