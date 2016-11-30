@@ -8,5 +8,7 @@ public :
   Vide(){}
   virtual bool isEmpty();
   virtual bool moveTo(Case &c);
+  virtual void print();
+
 };
 #endif

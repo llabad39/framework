@@ -7,6 +7,7 @@ public :
   Chiffre(int v):val(v),aFus(false){};
   virtual bool isEmpty();
   virtual bool moveTo(Case &c);
+  virtual void print();
   bool moveTo(Chiffre &c);
   bool fusion(Chiffre &c);
   int getVal();

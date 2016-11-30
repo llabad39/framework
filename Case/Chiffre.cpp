@@ -3,7 +3,9 @@
 bool Chiffre::isEmpty(){
   return false;
 }
-
+void Chiffre::print(){
+  cout << val;
+}
 int Chiffre::getVal(){
   return this->val;
 }
