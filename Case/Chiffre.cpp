@@ -3,7 +3,6 @@
 bool Chiffre::isEmpty(){
   return false;
 }
-
 Chiffre::Chiffre():aFus(false){
   srand(time(0));
   int al = rand()%5;
