@@ -8,14 +8,15 @@ using namespace std;
 class Plateau{
 public :
   Plateau(int taille);
+  Plateau(Plateau& p);
   int getTaille();
   void affiche();
-  Case& operator()(int x,int y);
-  void operator()(int x,int y,Chiffre *c);
-  vector<vector<shared_ptr<Case>>> plateau;
-  
+  shared_ptr<Case> operator()(int x,int y);
+  void operator()(int x,int y,shared_ptr<Case> c);
+  shared_ptr<Case> get(int x,int y);
 private :
   int taille;
+  vector<vector<shared_ptr<Case>>> plateau;
 };
 
 #endif
