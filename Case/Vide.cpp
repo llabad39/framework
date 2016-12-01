@@ -4,6 +4,6 @@ bool Vide::isEmpty(){
   return true;
 }
 
-bool Vide::moveTo(Case &c){
+bool Vide::moveTo(shared_ptr<Case> c){
   return true;
 }

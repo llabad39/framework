@@ -1,11 +1,8 @@
 #include "Plateau.hpp"
 #include <memory>
 Plateau::Plateau(int t):plateau(t , vector<shared_ptr<Case>>  (t)),taille(t){
-  for(int i=0;i<t;i++){
-    for(int j=0;j<t;j++){
-      plateau[i][j]= make_shared<Vide>();
-    }
-  }
+  
+  
 }
 
 
