@@ -1,11 +1,14 @@
 #include "Jeu2048.hpp"
 
-Jeu2048::Jeu2048(int t):Jeu(t),prec(Plateau(t)){
+Jeu2048::Jeu2048(int t):Jeu(t),prec(t){
   srand(time(0));
-  int x1 = rand()%t;
-  int y1 = rand()%t;
-  int x2 = rand()%t;
-  int y2 = rand()%t;
+  int x1,x2,y1,y2;
+  do{
+     x1 = rand()%t;
+     y1 = rand()%t;
+     x2 = rand()%t;
+     y2 = rand()%t;
+  }while(x1==x2 && y1==y2);
   for(int i=0;i<t;i++){
     for(int j=0;j<t;j++){
       if((i==x1 && j==y1) || (i==x2 && j==y2)){
@@ -20,6 +23,7 @@ Jeu2048::Jeu2048(int t):Jeu(t),prec(Plateau(t)){
 
 bool Jeu2048::right(){
   bool move=false;
+  int taille = getTaille();
   for(int i=0;i<taille;i++){
     for(int j=taille-2;j>=0;j--){
       if(!plat.get(i,j)->isEmpty()){
@@ -35,7 +39,7 @@ bool Jeu2048::right(){
 	if(k!=taille-1){
 	  k++;
 	  shared_ptr<Chiffre> c = static_pointer_cast<Chiffre>(plat.get(i,j));
-	  shared_ptr<Chiffre> c2 = static_pointer_cast<Chiffre>(plat.get(i,j));
+	  shared_ptr<Chiffre> c2 = static_pointer_cast<Chiffre>(plat.get(i,k));
 	  if(c->moveTo(c2)){
 	    plat(i,j,make_shared<Vide>());
 	    plat(i,k ,c2);

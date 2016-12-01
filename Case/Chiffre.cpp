@@ -27,7 +27,7 @@ bool Chiffre::fusion(shared_ptr<Chiffre> c){
  
   cout <<c->getVal() << " " << val << "\n";
   if(c->getVal()==this->val){
-    this->val = val*2;
+    c->val = val*2;
     return true;
   }
   else{
