@@ -7,7 +7,7 @@
 using namespace std;
 class Jeu{
 public:
-  Jeu(int t):plat(t){};
+  Jeu(int t) : plat(t){};
   virtual bool down()=0;
   virtual bool up()=0;
   virtual bool left()=0;

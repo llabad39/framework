@@ -1,6 +1,7 @@
 #ifndef PLATEAU
 #define PLATEAU
 #include "Chiffre.hpp"
+#include "ChiffreTaquin.hpp"
 #include "Vide.hpp"
 #include <iostream>
 #include <vector>

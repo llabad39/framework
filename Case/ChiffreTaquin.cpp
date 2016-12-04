@@ -3,7 +3,7 @@ bool ChiffreTaquin::isEmpty(){
   return false;
 }
 
-bool ChiffreTaquin::moveTo(Case &c){
+bool ChiffreTaquin::moveTo(shared_ptr<Case> c){
   return false;
 }
 
@@ -17,5 +17,8 @@ void ChiffreTaquin::setVal(int a){
 
 void ChiffreTaquin::affiche(){
   cout << val ;
+}
+
+void ChiffreTaquin::endTurn(){
 }
 

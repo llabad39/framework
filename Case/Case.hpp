@@ -2,6 +2,7 @@
 #define CASE
 #include <iostream>
 #include <vector>
+#include <memory>
 using namespace std;
 
 class Case{

@@ -11,9 +11,10 @@ public:
   bool up();
   bool left();
   bool right();
-  bool loose();
+  bool loose(){return false;};
   bool win();
-private:
-  Plateau prec;
+private :
+  int x;
+  int y;
 };
 #endif
