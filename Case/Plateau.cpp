@@ -37,3 +37,10 @@ shared_ptr<Case> Plateau::operator()(int x,int y){
 int Plateau::getTaille(){
   return taille;
 }
+
+void Plateau::swap(int x1, int y1, int x2, int y2){
+    shared_ptr<Case> c = plateau[x1][y1];
+    plateau[x1][y1]= plateau[x2][y2];
+    plateau[x2][y2]= c;
+}
+

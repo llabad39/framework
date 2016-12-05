@@ -3,6 +3,8 @@
 #include "Chiffre.hpp"
 #include "ChiffreTaquin.hpp"
 #include "Vide.hpp"
+#include "Caisse.hpp"
+#include "Mur.hpp"
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -15,6 +17,7 @@ public :
   shared_ptr<Case> operator()(int x,int y);
   void operator()(int x,int y,shared_ptr<Case> c);
   shared_ptr<Case> get(int x,int y);
+  void swap(int x1, int y1, int x2, int y2);
 private :
   int taille;
   vector<vector<shared_ptr<Case>>> plateau;

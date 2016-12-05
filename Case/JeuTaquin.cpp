@@ -33,9 +33,10 @@ bool JeuTaquin::right(){
   if(y==(taille-1)){
     return false;
   }else{
-    shared_ptr<ChiffreTaquin> c = static_pointer_cast<ChiffreTaquin>(plat.get(x,y+1));
-    plat(x,y+1,make_shared<Vide>());
-    plat(x,y ,c);
+    //shared_ptr<ChiffreTaquin> c = static_pointer_cast<ChiffreTaquin>(plat.get(x,y+1));
+    //plat(x,y+1,make_shared<Vide>());
+    //plat(x,y ,c);
+    plat.swap(x, y, x, y+1);
     y++;
 
   }
@@ -47,9 +48,7 @@ bool JeuTaquin::left(){
   if(y==0){
     return false;
   }else{
-    shared_ptr<ChiffreTaquin> c = static_pointer_cast<ChiffreTaquin>(plat.get(x,y-1));
-    plat(x,y-1,make_shared<Vide>());
-    plat(x,y ,c);
+    plat.swap(x, y, x, y-1);
     y--;
   }
   plat.affiche();
@@ -60,9 +59,7 @@ bool JeuTaquin::up(){
   if(x==0){
     return false;
   }else{
-    shared_ptr<ChiffreTaquin> c = static_pointer_cast<ChiffreTaquin>(plat.get(x-1,y));
-    plat(x-1,y,make_shared<Vide>());
-    plat(x,y ,c);
+    plat.swap(x, y, x-1, y);
     x--;
   }
   plat.affiche();
@@ -74,9 +71,7 @@ bool JeuTaquin::down(){
   if(x==(taille-1)){
     return false;
   }else{
-    shared_ptr<ChiffreTaquin> c = static_pointer_cast<ChiffreTaquin>(plat.get(x+1,y));
-    plat(x+1,y,make_shared<Vide>());
-    plat(x,y ,c);
+    plat.swap(x+1, y, x, y);
     x++;
   }
   plat.affiche();
@@ -87,7 +82,7 @@ bool JeuTaquin::win(){
   int taille = getTaille();
   for(int i=0; i<taille; i++){
     for(int j=0; j<taille; j++){
-      if(!plat.get(i,j)==i*taille+j+1){
+      if(!plat.get(i,j)==i*taille+j+1 && !(i==taille && j==taille)){
 	return false;
       }
     }
