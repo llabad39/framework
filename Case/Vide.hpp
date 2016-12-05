@@ -10,6 +10,6 @@ public :
   Vide(){}
   virtual bool isEmpty();
   virtual bool moveTo(shared_ptr<Case> c);
-  virtual void affiche(){ cout << "V"; } ;
+  virtual void affiche(){ cout << " "; } ;
 };
 #endif
