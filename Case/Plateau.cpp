@@ -20,7 +20,14 @@ void Plateau::affiche(){
   }
 }
 
-
+void Plateau::rotation(){
+  Plateau p(*this);
+  for(int i=0;i<taille;i++){
+    for(int j=0;j<taille;j++){
+      plateau[i][j] = p.get(j,taille-i-1);
+    }
+  }
+}
 void Plateau::operator()(int x,int y,shared_ptr<Case> c){
   plateau[x][y] = c;
 }
@@ -37,3 +44,10 @@ shared_ptr<Case> Plateau::operator()(int x,int y){
 int Plateau::getTaille(){
   return taille;
 }
+
+void Plateau::swap(int x1, int y1, int x2, int y2){
+    shared_ptr<Case> c = plateau[x1][y1];
+    plateau[x1][y1]= plateau[x2][y2];
+    plateau[x2][y2]= c;
+}
+

@@ -7,7 +7,6 @@ bool Vide::isEmpty(){
 bool Vide::moveTo(shared_ptr<Case> c){
   return true;
 }
-void Vide::print(){
-  Case c=new Vide();
-  cout << " ";
-}
+
+void Vide::affiche(){ cout << " "; }
+void Vide::endTurn(){};

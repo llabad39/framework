@@ -13,7 +13,7 @@ public:
   bool right();
   bool loose(){return true;};
   bool win(){return true;};
-  void affiche(){plat.affiche();};
+  void affiche();
   void rotation();
   void place();
 private:

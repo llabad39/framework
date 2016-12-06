@@ -34,6 +34,12 @@ bool Jeu2048::right(){
 	    plat(i,j,make_shared<Vide>());
 	    plat(i,k ,c2);
 	  }
+	  else if(k!=j){
+	    k--;
+	    shared_ptr<Case> c= plat.get(i,j);
+	    plat(i,j,plat.get(i,k));
+	    plat(i,k,c);
+	  }
 	}
 	else if(k!=j){
 	  shared_ptr<Case> c= plat.get(i,j);
@@ -48,29 +54,29 @@ bool Jeu2048::right(){
 }
 
 bool Jeu2048::down(){
-  rotation();
+  plat.rotation();
   bool move =right();
-  rotation();
-  rotation();
-  rotation();
+  plat.rotation();
+  plat.rotation();
+  plat.rotation();
   return move;
 }
 
 bool Jeu2048::left(){
-  rotation();
-  rotation();
+  plat.rotation();
+  plat.rotation();
   bool move =right();
-  rotation();
-  rotation();
+  plat.rotation();
+  plat.rotation();
   return move;
 }
 
 bool Jeu2048::up(){
-  rotation();
-  rotation();
-  rotation();
+  plat.rotation();
+  plat.rotation();
+  plat.rotation();
   bool move =right();
-  rotation();
+  plat.rotation();
   return move;
 }
 void Jeu2048::rotation(){
@@ -84,14 +90,14 @@ void Jeu2048::rotation(){
 }
 
 void Jeu2048::place(){
-  srand(time(0));
   int x,y;
   int t = getTaille();
   do{
+    srand(time(0));
     x = rand()%t;
     y = rand()%t;
-  }while(plat.get(x,y)->isEmpty());
-  plat(x,y,shared_ptr<Chiffre>());
+  }while(!plat.get(x,y)->isEmpty());
+  plat(x,y,make_shared<Chiffre>());
   
 }
 
@@ -103,6 +109,10 @@ void Jeu2048::endTurn(){
     }
   }
   place();
+}
+
+void Jeu2048::affiche(){
+  plat.affiche();
 }
   
 

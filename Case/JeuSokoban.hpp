@@ -1,12 +1,13 @@
-#ifndef JEUTAQUIN
-#define JEUTAQUIN
+#ifndef JEUSOKOBAN
+#define JEUSOKOBAN
 #include "Jeu.hpp"
+#include <list>
 
 using namespace std; 
 
-class JeuTaquin : public Jeu{
+class JeuSokoban : public Jeu{
 public:
-  JeuTaquin(int t);
+  JeuSokoban(int t);
   bool down();
   bool up();
   bool left();
@@ -16,5 +17,6 @@ public:
 private :
   int x;
   int y;
+  list<int> objectifs;
 };
 #endif

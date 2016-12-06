@@ -1,19 +1,19 @@
 #ifndef CHIFFRETAQUIN
 #define CHIFFRETAQUIN
 #include "Case.hpp"
-//#include <cstdlib>
 #include <iostream>
-//#include <ctime>
+#include <ctime>
 
 using namespace std;
 class ChiffreTaquin : public Case{
 public :
   ChiffreTaquin(int v):val(v){};
   virtual bool isEmpty();
-  virtual bool moveTo(Case &c);
+  virtual bool moveTo(shared_ptr<Case> c);
   int getVal();
-  virtual void setVal(int a);
+  void setVal(int a);
   virtual void affiche();
+  virtual void endTurn();
 private :
   int val;
 };

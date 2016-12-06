@@ -15,6 +15,8 @@ Chiffre::Chiffre():aFus(false){
 Chiffre::Chiffre(Chiffre& c):val(c.getVal()),aFus(false){
   
 }
+
+
 int Chiffre::getVal(){
   return this->val;
 }
@@ -24,7 +26,7 @@ bool Chiffre::moveTo(shared_ptr<Chiffre> c){
 }
 
 bool Chiffre::fusion(shared_ptr<Chiffre> c){ 
-  if(c->getVal()==this->val){
+  if(c->getVal()==this->val && !c->aFus){
     c->val = val*2;
     c->aFus = true;
     return true;
