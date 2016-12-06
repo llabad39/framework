@@ -5,9 +5,7 @@ bool Mur::isEmpty(){
 }
 
 bool Mur::moveTo(shared_ptr<Case> c){
-  if(c->isEmpty())
-    return true;
-  else return false;
+  return false;
 }
 void Mur::affiche(){
   cout << "M";
