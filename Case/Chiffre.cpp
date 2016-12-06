@@ -21,7 +21,6 @@ int Chiffre::getVal(){
   return this->val;
 }
 bool Chiffre::moveTo(shared_ptr<Chiffre> c){
-  cout << "in chiffre\n";
   return this->fusion(c);
 }
 
@@ -32,7 +31,6 @@ bool Chiffre::fusion(shared_ptr<Chiffre> c){
     return true;
   }
   else{
-    cout << "false" ;
     return false;
   }
 }
@@ -40,7 +38,6 @@ void Chiffre::affiche(){
   cout << val ;
 }
 bool Chiffre::moveTo(shared_ptr<Case> c){
-  cout << "in case\n";
   return true;
 }
 

@@ -11,7 +11,7 @@ public :
   virtual bool moveTo(shared_ptr<Case> c)=0;
   virtual void endTurn()=0;
   virtual void affiche()=0;
-  ~Case(){ cout << "destroy Case \n";};
+  //~Case(){ cout << "destroy Case \n";};
 
 };
 #endif
