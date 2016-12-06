@@ -69,6 +69,7 @@ bool JeuSokoban::right(){
     else{
       return false;
     }
+
   }
   plat.affiche();
   return true;
@@ -125,6 +126,7 @@ bool JeuSokoban::up(){
   plat.rotation();
   return move;
 }
+
 bool JeuSokoban::win(){
   int taille = getTaille();
   return true;

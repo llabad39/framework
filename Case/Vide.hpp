@@ -12,5 +12,6 @@ public :
   bool moveTo(shared_ptr<Case> c); 
   void affiche() ;
   void endTurn();
+
 };
 #endif
