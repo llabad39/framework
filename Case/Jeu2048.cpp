@@ -36,15 +36,11 @@ bool Jeu2048::right(){
 	  }
 	  else if(k!=j){
 	    k--;
-	    shared_ptr<Case> c= plat.get(i,j);
-	    plat(i,j,plat.get(i,k));
-	    plat(i,k,c);
+	    plat.swap(i,j,i,k);
 	  }
 	}
 	else if(k!=j){
-	  shared_ptr<Case> c= plat.get(i,j);
-	  plat(i,j,plat.get(i,k));
-	  plat(i,k,c);
+	  plat.swap(i,j,i,k);
 	}
       }
     }
