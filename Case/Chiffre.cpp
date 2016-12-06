@@ -23,11 +23,10 @@ bool Chiffre::moveTo(shared_ptr<Chiffre> c){
   return this->fusion(c);
 }
 
-bool Chiffre::fusion(shared_ptr<Chiffre> c){
- 
-  cout <<c->getVal() << " " << val << "\n";
+bool Chiffre::fusion(shared_ptr<Chiffre> c){ 
   if(c->getVal()==this->val){
     c->val = val*2;
+    c->aFus = true;
     return true;
   }
   else{
