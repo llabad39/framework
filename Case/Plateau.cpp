@@ -20,7 +20,14 @@ void Plateau::affiche(){
   }
 }
 
-
+void Plateau::rotation(){
+  Plateau p(*this);
+  for(int i=0;i<taille;i++){
+    for(int j=0;j<taille;j++){
+      plateau[i][j] = p.get(j,taille-i-1);
+    }
+  }
+}
 void Plateau::operator()(int x,int y,shared_ptr<Case> c){
   plateau[x][y] = c;
 }

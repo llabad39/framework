@@ -8,8 +8,10 @@ using namespace std;
 class Vide : public Case{
 public :
   Vide(){}
-  virtual bool isEmpty();
-  virtual bool moveTo(shared_ptr<Case> c);
-  virtual void affiche(){ cout << " "; } ;
+  bool isEmpty();
+  bool moveTo(shared_ptr<Case> c); 
+  void affiche() ;
+  void endTurn();
+
 };
 #endif

@@ -6,15 +6,16 @@
 class Jeu2048 : public Jeu{
 public:
   Jeu2048(int t);
-  void endTurn(){};
-  bool down(){return false;};
-  bool up(){return false;};
-  bool left(){return false;};
+  void endTurn();
+  bool down();
+  bool up();
+  bool left();
   bool right();
-  bool loose(){return false;};
-  bool win(){return false;};
-  void affiche(){plat.affiche();};
+  bool loose(){return true;};
+  bool win(){return true;};
+  void affiche();
   void rotation();
+  void place();
 private:
   Plateau prec;
 };

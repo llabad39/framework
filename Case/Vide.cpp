@@ -8,3 +8,5 @@ bool Vide::moveTo(shared_ptr<Case> c){
   return true;
 }
 
+void Vide::affiche(){ cout << " "; }
+void Vide::endTurn(){};

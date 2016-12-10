@@ -1,23 +1,13 @@
 #include "Jeu2048.hpp"
 
 Jeu2048::Jeu2048(int t):Jeu(t),prec(t){
-  srand(time(0));
-  int x1,x2,y1,y2;
-  do{
-     x1 = rand()%t;
-     y1 = rand()%t;
-     x2 = rand()%t;
-     y2 = rand()%t;
-  }while(x1==x2 && y1==y2);
   for(int i=0;i<t;i++){
     for(int j=0;j<t;j++){
-      if((i==x1 && j==y1) || (i==x2 && j==y2)){
-	plat(i,j,make_shared<Chiffre>());
-      }
-      else 
 	plat(i,j,make_shared<Vide>());
     }
   }
+  place();
+  place();
   plat.affiche();
 }
 
@@ -44,17 +34,81 @@ bool Jeu2048::right(){
 	    plat(i,j,make_shared<Vide>());
 	    plat(i,k ,c2);
 	  }
+	  else if(k!=j){
+	    k--;
+	    plat.swap(i,j,i,k);
+	  }
 	}
 	else if(k!=j){
-	  shared_ptr<Case> c= plat.get(i,j);
-	  plat(i,j,plat.get(i,k));
-	  plat(i,k,c);
+	  plat.swap(i,j,i,k);
 	}
       }
     }
     
   }
   return move;
+}
+
+bool Jeu2048::down(){
+  plat.rotation();
+  bool move =right();
+  plat.rotation();
+  plat.rotation();
+  plat.rotation();
+  return move;
+}
+
+bool Jeu2048::left(){
+  plat.rotation();
+  plat.rotation();
+  bool move =right();
+  plat.rotation();
+  plat.rotation();
+  return move;
+}
+
+bool Jeu2048::up(){
+  plat.rotation();
+  plat.rotation();
+  plat.rotation();
+  bool move =right();
+  plat.rotation();
+  return move;
+}
+void Jeu2048::rotation(){
+  Plateau p(plat);
+  int t = getTaille();
+  for(int i=0;i<t;i++){
+    for(int j=0;j<t;j++){
+      plat(i,j,p.get(j,t-i-1));
+    }
+  }
+}
+
+void Jeu2048::place(){
+  int x,y;
+  int t = getTaille();
+  do{
+    srand(time(0));
+    x = rand()%t;
+    y = rand()%t;
+  }while(!plat.get(x,y)->isEmpty());
+  plat(x,y,make_shared<Chiffre>());
+  
+}
+
+void Jeu2048::endTurn(){
+  int t = getTaille();
+  for(int i=0;i<t;i++){
+    for(int j=0;j<t;j++){
+      plat.get(i,j)->endTurn();
+    }
+  }
+  place();
+}
+
+void Jeu2048::affiche(){
+  plat.affiche();
 }
   
 

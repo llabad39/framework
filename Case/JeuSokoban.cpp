@@ -58,42 +58,72 @@ bool JeuSokoban::right(){
   if(y==(taille-1)){
     return false;
   }else{
+    if(plat.get(x,y+1)->isEmpty())
+      y++;
+    
+    else if(plat.get(x,y+1)->moveTo(plat.get(x,y+2))){
+      plat.swap(x,y+1,x,y+2);
+      y++;
+    }
+    else{
+      return false;
+    }
 
-    y++;
-  }
-  plat.affiche();
-  return true;
-}
-
-bool JeuSokoban::left(){
-  if(y==0){
-    return false;
-  }else{
-    y--;
-  }
-  plat.affiche();
-  return true;
-}
-
-bool JeuSokoban::up(){
-  if(x==0){
-    return false;
-  }else{
-    x--;
   }
   plat.affiche();
   return true;
 }
 
 bool JeuSokoban::down(){
-  int taille = getTaille();
-  if(x==(taille-1)){
-    return false;
-  }else{
+  int t= getTaille();
+  plat.rotation();
+  int a= y;
+  y=t-x-1;
+  x=a;
+  bool move =right();
+  plat.rotation();
+  plat.rotation();
+  plat.rotation();
+  a=x;
+  x=t-y-1;
+  y=a;
+  if(move)
     x++;
-  }
-  plat.affiche();
-  return true;
+  return move;
+}
+
+bool JeuSokoban::left(){
+  int t=getTaille();
+  plat.rotation();
+  plat.rotation();
+  x=t-x-1;
+  y=t-y-1;
+  bool move =right();
+  plat.rotation();
+  plat.rotation();
+  x=t-x-1;
+  y=t-y-1;
+  if(move)
+    y--;
+  return move;
+}
+
+bool JeuSokoban::up(){
+  int t=getTaille();
+  plat.rotation();
+  plat.rotation();
+  plat.rotation();
+  int a=x;
+  x=t-y-1;
+  y=a;
+  bool move =right();
+  a= y;
+  y=t-x-1;
+  x=a;
+  if(move)
+    x--;
+  plat.rotation();
+  return move;
 }
 
 bool JeuSokoban::win(){
