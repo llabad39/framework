@@ -17,6 +17,6 @@ public:
 private :
   int x;
   int y;
-  list<int> objectifs;
+  list<pair<int,int>> objectifs;
 };
 #endif

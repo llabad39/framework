@@ -15,8 +15,9 @@ JeuSokoban::JeuSokoban(int t) : Jeu(t){
     }
   }
   srand(time(0));
-  int n = rand()%t; //nombre de caisses/d'objectifs.
-  for(int i=0; i<n; i++){
+  int n = (rand()%t)+1; //nombre de caisses/d'objectifs.
+  cout << "n : " << n << endl; 
+  for(int i=0; i<=2*n; i++){ 
     int n=rand()%(l.size());
     list<pair<int,int>>::iterator it=l.begin();
     for (int k=0; k != n; k++){
@@ -24,33 +25,31 @@ JeuSokoban::JeuSokoban(int t) : Jeu(t){
     }
     pair<int,int> p=*it;
     l.erase(it);
-    plat(get<0>(p),get<1>(p),make_shared<Caisse>());
-  }
-
-  while(!l.empty()){
-    pair<int,int> p=l.front();
-    plat(get<0>(p),get<1>(p),make_shared<Vide>());
-    l.pop_front();
-  }
-
-  /* for(int j=0; j<n; j++){
-      srand(time(0));
-      int n = rand()%(l.size());
-      list<int>::iterator it=l.begin();
-      for (int k=0; k != n; k++){
-	++it;
-      }
-      int num=*it;
-      l.erase(it);
-      if(num!=t*t){
-	plat(i,j,make_shared<ChiffreTaquin>(num));
-      }else{
-	plat(i,j,make_shared<Vide>());
-	x=i;
-	y=j;
+    if(i==(2*n)){         //choix de l'emplacement du personnage
+      x=get<0>(p);
+      y=get<1>(p);
+      cout << "perso : " << x << " " << y << endl; 
+      plat(x,y,make_shared<Vide>());
+    }else{
+      if(i%2==0){        //choix de l'emplacement des Caisses
+	plat(get<0>(p),get<1>(p),make_shared<Caisse>());
+      }else{             //choix de l'emplacement des objectifs
+	objectifs.push_back(p);
+	plat(get<0>(p),get<1>(p),make_shared<Vide>());
+	cout << get<0>(p) << " " << get<1>(p) << endl; 
       }
     }
-    }*/
+  }
+  while(!l.empty()){
+    pair<int,int> p=l.front();
+    int m = rand()%t;
+    if(!m==0){
+      plat(get<0>(p),get<1>(p),make_shared<Vide>());
+    }else{
+      plat(get<0>(p),get<1>(p),make_shared<Mur>());
+    }
+    l.pop_front();
+  }
   plat.affiche();
 }
 
