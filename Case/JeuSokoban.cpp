@@ -1,4 +1,5 @@
 #include "JeuSokoban.hpp"
+#include <algorithm>
 
 JeuSokoban::JeuSokoban(int t) : Jeu(t){
    for(int i=0; i<t-1; i++){
@@ -16,11 +17,10 @@ JeuSokoban::JeuSokoban(int t) : Jeu(t){
   }
   srand(time(0));
   int n = (rand()%t)+1; //nombre de caisses/d'objectifs.
-  cout << "n : " << n << endl; 
-  for(int i=0; i<=2*n; i++){ 
-    int n=rand()%(l.size());
+  for(int i=0; i<(2*n+1); i++){ 
+    int num=rand()%(l.size());
     list<pair<int,int>>::iterator it=l.begin();
-    for (int k=0; k != n; k++){
+    for (int k=0; k != num; k++){
       ++it;
     }
     pair<int,int> p=*it;
@@ -28,7 +28,6 @@ JeuSokoban::JeuSokoban(int t) : Jeu(t){
     if(i==(2*n)){         //choix de l'emplacement du personnage
       x=get<0>(p);
       y=get<1>(p);
-      cout << "perso : " << x << " " << y << endl; 
       plat(x,y,make_shared<Vide>());
     }else{
       if(i%2==0){        //choix de l'emplacement des Caisses
@@ -36,13 +35,12 @@ JeuSokoban::JeuSokoban(int t) : Jeu(t){
       }else{             //choix de l'emplacement des objectifs
 	objectifs.push_back(p);
 	plat(get<0>(p),get<1>(p),make_shared<Vide>());
-	cout << get<0>(p) << " " << get<1>(p) << endl; 
       }
     }
   }
   while(!l.empty()){
     pair<int,int> p=l.front();
-    int m = rand()%t;
+    int m = rand()%10;
     if(!m==0){
       plat(get<0>(p),get<1>(p),make_shared<Vide>());
     }else{
@@ -50,7 +48,7 @@ JeuSokoban::JeuSokoban(int t) : Jeu(t){
     }
     l.pop_front();
   }
-  plat.affiche();
+  affiche();
 }
 
 bool JeuSokoban::right(){
@@ -70,7 +68,7 @@ bool JeuSokoban::right(){
     }
 
   }
-  plat.affiche();
+  affiche();
   return true;
 }
 
@@ -127,6 +125,38 @@ bool JeuSokoban::up(){
 }
 
 bool JeuSokoban::win(){
-  int taille = getTaille();
+  list<pair<int,int>>::iterator it1=objectifs.begin();
+  list<pair<int,int>>::iterator it2=objectifs.end();
+  while(it1!=it2){
+    ++it1;
+    if(plat.get(get<0>(*it1), get<1>(*it1))->isEmpty()){
+	return false;
+    }
+  }
   return true;
+}
+
+void JeuSokoban::affiche(){
+  int taille = getTaille();
+  for(int i=0;i<taille;i++){
+    cout << "|" ;
+    for(int j =0;j<taille;j++){
+      if(!plat.get(i,j)->isEmpty()){
+	plat.get(i,j)->affiche();
+      }else{
+	if(i==x && j==y){
+	  cout << "P";
+	}else{
+	  pair<int,int> p (i,j);
+	  if(find(objectifs.begin(), objectifs.end(), p) != objectifs.end()){
+	    cout << "O";
+	  }else{
+	    plat.get(i,j)->affiche();
+	  }
+	}
+      }
+      cout << "|";
+    }
+    cout << "\n" ;
+  }
 }
