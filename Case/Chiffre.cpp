@@ -10,10 +10,11 @@ Chiffre::Chiffre():aFus(false){
     val = 4;
   else
     val = 2;
+  image = "image/"+to_string(val);
 }
 
 Chiffre::Chiffre(Chiffre& c):val(c.getVal()),aFus(false){
-  
+  image = c.image;
 }
 
 
@@ -27,6 +28,7 @@ bool Chiffre::moveTo(shared_ptr<Chiffre> c){
 bool Chiffre::fusion(shared_ptr<Chiffre> c){ 
   if(c->getVal()==this->val && !c->aFus){
     c->val = val*2;
+    c->image= "image/"+to_string(val);
     c->aFus = true;
     return true;
   }
@@ -44,3 +46,5 @@ bool Chiffre::moveTo(shared_ptr<Case> c){
 void Chiffre::endTurn(){
   aFus=false;
 }
+
+

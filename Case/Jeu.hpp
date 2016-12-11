@@ -14,7 +14,8 @@ public:
   virtual bool right()=0;
   virtual bool win()=0;
   virtual bool loose()=0;
-  int getTaille(){return plat.getTaille();};
+  shared_ptr<Case> get(int x,int y);
+  int getTaille();
   
 protected:
   Plateau plat;
