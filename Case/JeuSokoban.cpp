@@ -15,7 +15,7 @@ JeuSokoban::JeuSokoban(int t) : Jeu(t){
     }
   }
   srand(time(0));
-  int n = (rand()%t)+1; //nombre de caisses/d'objectifs.
+  int n = (rand()%((t*t)/20))+1; //nombre de caisses/d'objectifs.
   for(int i=0; i<(2*n+1); i++){ 
     int num=rand()%(l.size());
     list<pair<int,int>>::iterator it=l.begin();
@@ -65,27 +65,23 @@ bool JeuSokoban::right(){
     else{
       return false;
     }
-
   }
-  affiche();
   return true;
 }
 
 bool JeuSokoban::down(){
   int t= getTaille();
   plat.rotation();
-  int a= y;
-  y=t-x-1;
-  x=a;
+  int a= x;
+  x=t-y-1;
+  y=a;
   bool move =right();
   plat.rotation();
   plat.rotation();
   plat.rotation();
-  a=x;
-  x=t-y-1;
-  y=a;
-  if(move)
-    x++;
+  a=y;
+  y=t-x-1;
+  x=a;
   return move;
 }
 
@@ -100,8 +96,6 @@ bool JeuSokoban::left(){
   plat.rotation();
   x=t-x-1;
   y=t-y-1;
-  if(move)
-    y--;
   return move;
 }
 
@@ -110,29 +104,24 @@ bool JeuSokoban::up(){
   plat.rotation();
   plat.rotation();
   plat.rotation();
-  int a=x;
-  x=t-y-1;
-  y=a;
-  bool move =right();
-  a= y;
+  int a=y;
   y=t-x-1;
   x=a;
-  if(move)
-    x--;
+  bool move =right();
+  a= x;
+  x=t-y-1;
+  y=a;
   plat.rotation();
   return move;
 }
 
 bool JeuSokoban::win(){
-  list<pair<int,int>>::iterator it1=objectifs.begin();
-  list<pair<int,int>>::iterator it2=objectifs.end();
-  while(it1!=it2){
-    ++it1;
-    if(plat.get(std::get<0>(*it1),std::get<1>(*it1))->isEmpty()){
-	return false;
-    }
+  for (std::list<pair<int,int>>::iterator i = objectifs.begin(); i != objectifs.end(); ++i) {  
+  if(plat.get(std::get<0>(*i),std::get<1>(*i))->isEmpty()){
+    return false;
   }
-  return true;
+ }
+ return true;
 }
 
 void JeuSokoban::affiche(){
