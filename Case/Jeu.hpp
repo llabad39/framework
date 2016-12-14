@@ -14,7 +14,10 @@ public:
   virtual bool right()=0;
   virtual bool win()=0;
   virtual bool loose()=0;
-  virtual void robostupide();
+  virtual bool endTurn()=0;
+  virtual void affiche()=0;
+  void play();
+  void robostupide();
   shared_ptr<Case> get(int x,int y);
   int getTaille();
   

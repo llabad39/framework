@@ -86,3 +86,10 @@ bool JeuTaquin::win(){
   }
   return true;
 }
+
+bool JeuTaquin::endTurn(){
+  if(!(win() || loose()))
+    return true;
+  else
+    return false;
+}

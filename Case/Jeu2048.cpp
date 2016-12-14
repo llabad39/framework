@@ -97,16 +97,20 @@ void Jeu2048::place(){
   
 }
 
-void Jeu2048::endTurn(){
-  int t = getTaille();
-  for(int i=0;i<t;i++){
-    for(int j=0;j<t;j++){
-      plat.get(i,j)->endTurn();
-    }
+bool Jeu2048::endTurn(){
+  if(!(win() || loose())){
+	int t = getTaille();
+	for(int i=0;i<t;i++){
+	  for(int j=0;j<t;j++){
+	    plat.get(i,j)->endTurn();
+	  }
+	}
+	place();
+	return true;
   }
-  place();
+  else
+    return false;
 }
-
 void Jeu2048::affiche(){
   plat.affiche();
 }

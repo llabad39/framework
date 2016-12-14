@@ -6,7 +6,7 @@
 class Jeu2048 : public Jeu{
 public:
   Jeu2048(int t);
-  void endTurn();
+  bool endTurn();
   bool down();
   bool up();
   bool left();

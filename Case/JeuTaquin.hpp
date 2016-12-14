@@ -13,6 +13,7 @@ public:
   bool right();
   bool loose(){return false;};
   bool win();
+  bool endTurn();
 private :
   int x;
   int y;

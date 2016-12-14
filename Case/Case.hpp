@@ -13,8 +13,7 @@ public :
   virtual bool moveTo(shared_ptr<Case> c)=0;
   virtual void endTurn()=0;
   virtual void affiche()=0;
-  virtual string getImage();
-  //~Case(){ cout << "destroy Case \n";};
+  string getImage();
 protected :
   string image;
 
