@@ -1,5 +1,4 @@
 #include "JeuSokoban.hpp"
-#include <algorithm>
 
 JeuSokoban::JeuSokoban(int t) : Jeu(t){
    for(int i=0; i<t-1; i++){
@@ -26,15 +25,15 @@ JeuSokoban::JeuSokoban(int t) : Jeu(t){
     pair<int,int> p=*it;
     l.erase(it);
     if(i==(2*n)){         //choix de l'emplacement du personnage
-      x=get<0>(p);
-      y=get<1>(p);
+      x=std::get<0>(p);
+      y=std::get<1>(p);
       plat(x,y,make_shared<Vide>());
     }else{
       if(i%2==0){        //choix de l'emplacement des Caisses
-	plat(get<0>(p),get<1>(p),make_shared<Caisse>());
+	plat(std::get<0>(p),std::get<1>(p),make_shared<Caisse>());
       }else{             //choix de l'emplacement des objectifs
 	objectifs.push_back(p);
-	plat(get<0>(p),get<1>(p),make_shared<Vide>());
+	plat(std::get<0>(p),std::get<1>(p),make_shared<Vide>());
       }
     }
   }
@@ -42,9 +41,9 @@ JeuSokoban::JeuSokoban(int t) : Jeu(t){
     pair<int,int> p=l.front();
     int m = rand()%10;
     if(!m==0){
-      plat(get<0>(p),get<1>(p),make_shared<Vide>());
+      plat(std::get<0>(p),std::get<1>(p),make_shared<Vide>());
     }else{
-      plat(get<0>(p),get<1>(p),make_shared<Mur>());
+      plat(std::get<0>(p),std::get<1>(p),make_shared<Mur>());
     }
     l.pop_front();
   }
@@ -129,7 +128,7 @@ bool JeuSokoban::win(){
   list<pair<int,int>>::iterator it2=objectifs.end();
   while(it1!=it2){
     ++it1;
-    if(plat.get(get<0>(*it1), get<1>(*it1))->isEmpty()){
+    if(plat.get(std::get<0>(*it1),std::get<1>(*it1))->isEmpty()){
 	return false;
     }
   }
