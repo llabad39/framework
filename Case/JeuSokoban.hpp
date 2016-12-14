@@ -3,8 +3,6 @@
 #include "Jeu.hpp"
 #include <list>
 
-using namespace std; 
-
 class JeuSokoban : public Jeu{
 public:
   JeuSokoban(int t);
