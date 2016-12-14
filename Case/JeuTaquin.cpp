@@ -33,9 +33,6 @@ bool JeuTaquin::right(){
   if(y==(taille-1)){
     return false;
   }else{
-    //shared_ptr<ChiffreTaquin> c = static_pointer_cast<ChiffreTaquin>(plat.get(x,y+1));
-    //plat(x,y+1,make_shared<Vide>());
-    //plat(x,y ,c);
     plat.swap(x, y, x, y+1);
     y++;
 
@@ -82,7 +79,7 @@ bool JeuTaquin::win(){
   int taille = getTaille();
   for(int i=0; i<taille; i++){
     for(int j=0; j<taille; j++){
-      if(!plat.get(i,j)==i*taille+j+1 && !(i==taille && j==taille)){
+      if(!plat.get(i,j)==i*taille+j+1 && !(i==(taille-1) && j==(taille-1))){
 	return false;
       }
     }
