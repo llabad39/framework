@@ -3,7 +3,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 int main(){
-  Jeu j;
+  Jeu *j;
   int taille;
   int jeu;
   
@@ -13,15 +13,14 @@ int main(){
   cin >> taille;
   switch(jeu){
   case 1:
-    j= Jeu2048(taille);
+    j= new Jeu2048(taille);
     break;
   case 2:
-    j=JeuTaquin(taille);
+    j=new JeuTaquin(taille);
     break;
   default:
     return -1;
-  
   }
-  j.play();
+  j->play();
   
 }

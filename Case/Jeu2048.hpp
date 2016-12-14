@@ -11,8 +11,8 @@ public:
   bool up();
   bool left();
   bool right();
-  bool loose(){return true;};
-  bool win(){return true;};
+  bool loose(){return false;};
+  bool win(){return false;};
   void affiche();
   void rotation();
   void place();

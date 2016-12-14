@@ -98,17 +98,19 @@ void Jeu2048::place(){
 }
 
 bool Jeu2048::endTurn(){
-  if(!(win() || loose())){
+  if(!win() && !loose()){
 	int t = getTaille();
 	for(int i=0;i<t;i++){
 	  for(int j=0;j<t;j++){
 	    plat.get(i,j)->endTurn();
 	  }
 	}
+	cout << "sa marche\n";
 	place();
 	return true;
   }
   else
+    cout << "pas du tout";
     return false;
 }
 void Jeu2048::affiche(){
