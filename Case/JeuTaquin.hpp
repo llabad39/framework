@@ -13,6 +13,7 @@ public:
   bool right();
   bool loose(){return false;};
   bool win();
+  void affiche();
 private :
   int x;
   int y;

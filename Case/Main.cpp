@@ -1,8 +1,8 @@
-#include "JeuSokoban.hpp"
+#include "Jeu2048.hpp"
 #include <iostream>
 #include <SFML/Graphics.hpp>
 int main(){
-  JeuSokoban j(10);
+  Jeu2048 j(10);
   /*
   
  sf::RenderWindow window(sf::VideoMode(600, 600), "Sokoban");

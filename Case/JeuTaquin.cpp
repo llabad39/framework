@@ -25,7 +25,7 @@ JeuTaquin::JeuTaquin(int t) : Jeu(t){
       }
     }
   }
-  plat.affiche();
+  affiche();
 }
 
 bool JeuTaquin::right(){
@@ -37,7 +37,6 @@ bool JeuTaquin::right(){
     y++;
 
   }
-  plat.affiche();
   return true;
 }
 
@@ -48,7 +47,6 @@ bool JeuTaquin::left(){
     plat.swap(x, y, x, y-1);
     y--;
   }
-  plat.affiche();
   return true;
 }
 
@@ -59,7 +57,6 @@ bool JeuTaquin::up(){
     plat.swap(x, y, x-1, y);
     x--;
   }
-  plat.affiche();
   return true;
 }
 
@@ -71,7 +68,6 @@ bool JeuTaquin::down(){
     plat.swap(x+1, y, x, y);
     x++;
   }
-  plat.affiche();
   return true;
 }
 
@@ -85,4 +81,8 @@ bool JeuTaquin::win(){
     }
   }
   return true;
+}
+
+void JeuTaquin::affiche(){
+  plat.affiche();
 }
