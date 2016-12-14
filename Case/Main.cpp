@@ -2,55 +2,16 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 int main(){
+<<<<<<< HEAD
   Jeu2048 j(10);
   /*
+=======
+  Jeu j;
+  int taille;
+  int jeu;
   
- sf::RenderWindow window(sf::VideoMode(600, 600), "Sokoban");
-    sf::Texture texture;
-    if (!texture.loadFromFile("Mur.jpeg"))
-      {
-	// error...
-      }
-    //texture.setSmooth(true);
-    texture.setRepeated(true);
-    sf::Sprite sprite;
-    sprite.setTexture(texture);
-sprite.setTextureRect(sf::IntRect(10, 10, 32, 32));
-    while (window.isOpen())
-    {
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
-
-        window.clear();
-window.draw(sprite);
-        window.display();
-    }
-
-    return 0;*/
-    int ecrit;
-  while(true){
-    cin >> ecrit;
-    switch (ecrit){
-    case 6:{
-     j.right();
-     break;
-    }
-    case 4:{
-      j.left();
-      break;
-    }
-    case 8:{
-      j.up();
-      break;
-    }
-    case 2:{
-      j.down();
-      break;
-    }
-    }
-    }
+  cout << 
+  cin << taille;
+>>>>>>> 7d3d154c6f570db78411ef9cef17b81dce2a0ccb
+  
 }

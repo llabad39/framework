@@ -28,3 +28,29 @@ void Jeu::robostupide(){
      joue=!(win() || loose());
   }
 }
+
+void Jeu::play(){
+  int ecrit;
+  while(true){
+    cin >> ecrit;
+    switch (ecrit){
+    case 1:
+      right();
+      break;
+      
+    case 2:
+      left();
+      break;
+      
+    case 3:
+      up();
+      break;
+    
+    case 4:
+      down();
+      break;
+    
+    }
+    affiche();
+  }
+}

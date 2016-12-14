@@ -160,3 +160,10 @@ void JeuSokoban::affiche(){
     cout << "\n" ;
   }
 }
+
+bool JeuSokoban::endTurn(){
+  if(!(win() || loose()))
+    return true;
+  else
+    return false;
+}

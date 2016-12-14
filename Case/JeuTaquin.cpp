@@ -86,3 +86,9 @@ bool JeuTaquin::win(){
 void JeuTaquin::affiche(){
   plat.affiche();
 }
+bool JeuTaquin::endTurn(){
+  if(!(win() || loose()))
+    return true;
+  else
+    return false;
+}

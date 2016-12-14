@@ -14,6 +14,7 @@ public:
   bool loose(){return false;};
   bool win();
   void affiche();
+  bool endTurn();
 private :
   int x;
   int y;
