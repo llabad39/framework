@@ -75,15 +75,7 @@ bool Jeu2048::up(){
   plat.rotation();
   return move;
 }
-void Jeu2048::rotation(){
-  Plateau p(plat);
-  int t = getTaille();
-  for(int i=0;i<t;i++){
-    for(int j=0;j<t;j++){
-      plat(i,j,p.get(j,t-i-1));
-    }
-  }
-}
+
 
 void Jeu2048::place(){
   int x,y;

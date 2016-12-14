@@ -14,7 +14,6 @@ public:
   bool loose(){return false;};
   bool win(){return false;};
   void affiche();
-  void rotation();
   void place();
 private:
   Plateau prec;

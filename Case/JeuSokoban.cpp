@@ -52,7 +52,7 @@ JeuSokoban::JeuSokoban(int t) : Jeu(t){
 
 bool JeuSokoban::right(){
   int taille = getTaille();
-  if(y==(taille-1)){
+  if(y==(taille-2)){
     return false;
   }else{
     if(plat.get(x,y+1)->isEmpty())
@@ -72,21 +72,24 @@ bool JeuSokoban::right(){
 }
 
 bool JeuSokoban::down(){
-  int t= getTaille();
-  plat.rotation();
-  int a= y;
-  y=t-x-1;
-  x=a;
-  bool move =right();
-  plat.rotation();
-  plat.rotation();
-  plat.rotation();
-  a=x;
-  x=t-y-1;
-  y=a;
-  if(move)
-    x++;
-  return move;
+  int taille = getTaille();
+  if(x==(taille-2)){
+    return false;
+  }else{
+    if(plat.get(x+1,y)->isEmpty())
+      x++;
+    
+    else if(plat.get(x+1,y)->moveTo(plat.get(x,y+2))){
+      plat.swap(x+1,y,x+2,y);
+      y++;
+    }
+    else{
+      return false;
+    }
+
+  }
+  affiche();
+  return true;
 }
 
 bool JeuSokoban::left(){
