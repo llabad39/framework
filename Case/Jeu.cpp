@@ -32,7 +32,7 @@ void Jeu::robostupide(){
 void Jeu::play(){
   int ecrit;
   bool end=true;
-  while(true){
+  while(!(win()||loose())){
     cout << "1 : right(), 2: left(), 3:up(),4:down(),5:quit()\n";
     cin >> ecrit;
     switch (ecrit){
@@ -66,7 +66,7 @@ void Jeu::play(){
       end = endTurn();
     if(!end)
       break;
-    affiche();
+    //affiche();
     
   }
 }

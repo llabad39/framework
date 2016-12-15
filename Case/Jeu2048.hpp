@@ -11,10 +11,15 @@ public:
   bool up();
   bool left();
   bool right();
-  bool loose(){return false;};
-  bool win(){return false;};
+  bool loose();
+  bool win();
+  bool canVert();
+  bool canHor();
   void affiche();
   virtual void place();
+  
+protected:
+  int highestFus;
 
 };
 #endif
