@@ -40,7 +40,7 @@ JeuSokoban::JeuSokoban(int t) : Jeu(t){
   while(!l.empty()){
     pair<int,int> p=l.front();
     int m = rand()%10;
-    if(!m==0){
+    if(!(m==0)){
       plat(std::get<0>(p),std::get<1>(p),make_shared<Vide>());
     }else{
       plat(std::get<0>(p),std::get<1>(p),make_shared<Mur>());
@@ -52,7 +52,7 @@ JeuSokoban::JeuSokoban(int t) : Jeu(t){
 
 bool JeuSokoban::right(){
   int taille = getTaille();
-  if(y==(taille-1)){
+  if(y==(taille-2)){
     return false;
   }else{
     if(plat.get(x,y+1)->isEmpty())

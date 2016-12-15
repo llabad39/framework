@@ -32,6 +32,11 @@ bool Chiffre::fusion(shared_ptr<Chiffre> c){
     c->aFus = true;
     return true;
   }
+  else if(-(c->getVal())==this->val && !c->aFus){
+    c->val=0;
+     c->aFus = true;
+    return true;
+  }
   else{
     return false;
   }
