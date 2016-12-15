@@ -1,12 +1,12 @@
 #ifndef JEU2048
 #define JEU2048
 #include "Jeu.hpp"
+#include "ChiffreBase2.hpp"
 
-
-class Jeu2048 : public Jeu{
+class Jeu2048 :  public Jeu{
 public:
   Jeu2048(int t);
-  bool endTurn();
+  virtual bool endTurn();
   bool down();
   bool up();
   bool left();
@@ -14,8 +14,7 @@ public:
   bool loose(){return false;};
   bool win(){return false;};
   void affiche();
-  void place();
-private:
-  Plateau prec;
+  virtual void place();
+
 };
 #endif

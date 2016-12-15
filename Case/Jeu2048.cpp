@@ -1,6 +1,6 @@
 #include "Jeu2048.hpp"
 
-Jeu2048::Jeu2048(int t):Jeu(t),prec(t){
+Jeu2048::Jeu2048(int t):Jeu(t){
   for(int i=0;i<t;i++){
     for(int j=0;j<t;j++){
 	plat(i,j,make_shared<Vide>());
@@ -32,7 +32,10 @@ bool Jeu2048::right(){
 	  shared_ptr<Chiffre> c2 = static_pointer_cast<Chiffre>(plat.get(i,k));
 	  if(c->moveTo(c2)){
 	    plat(i,j,make_shared<Vide>());
-	    plat(i,k ,c2);
+	    if(c2->getVal() != 0)
+	      plat(i,k ,c2);
+	    else
+	      plat(i,k,make_shared<Vide>());
 	  }
 	  else if(k!=j){
 	    k--;
@@ -85,7 +88,7 @@ void Jeu2048::place(){
     x = rand()%t;
     y = rand()%t;
   }while(!plat.get(x,y)->isEmpty());
-  plat(x,y,make_shared<Chiffre>());
+  plat(x,y,make_shared<ChiffreBase2>());
   
 }
 

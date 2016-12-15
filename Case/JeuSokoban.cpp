@@ -40,7 +40,7 @@ JeuSokoban::JeuSokoban(int t) : Jeu(t){
   while(!l.empty()){
     pair<int,int> p=l.front();
     int m = rand()%10;
-    if(!m==0){
+    if(!(m==0)){
       plat(std::get<0>(p),std::get<1>(p),make_shared<Vide>());
     }else{
       plat(std::get<0>(p),std::get<1>(p),make_shared<Mur>());

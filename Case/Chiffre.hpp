@@ -19,7 +19,7 @@ public :
   void setVal(int a);
   virtual void affiche();
   virtual void endTurn();
-private :
+protected :
   int val;
   bool aFus;
 };
