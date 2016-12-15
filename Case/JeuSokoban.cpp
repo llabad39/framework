@@ -58,7 +58,7 @@ bool JeuSokoban::right(){
     if(plat.get(x,y+1)->isEmpty())
       y++;
     
-    else if(plat.get(x,y+1)->moveTo(plat.get(x,y+2))){
+    else if(!(y+2==taille) && plat.get(x,y+1)->moveTo(plat.get(x,y+2))){
       plat.swap(x,y+1,x,y+2);
       y++;
     }
@@ -121,6 +121,7 @@ bool JeuSokoban::win(){
     return false;
   }
  }
+  cout << "gagné !" << endl;
  return true;
 }
 

@@ -36,19 +36,19 @@ void Jeu::play(){
     cout << "1 : right(), 2: left(), 3:up(),4:down(),5:quit()\n";
     cin >> ecrit;
     switch (ecrit){
-    case 1:
+    case 6:
       right();
       break;
       
-    case 2:
+    case 4:
       left();
       break;
       
-    case 3:
+    case 8:
       up();
       break;
     
-    case 4:
+    case 2:
       down();
       break;
     case 5:
@@ -62,11 +62,11 @@ void Jeu::play(){
     }
     if(ecrit==-1)
       break;
+    affiche();
     if(ecrit !=-2)
       end = endTurn();
     if(!end)
       break;
-    affiche();
     
   }
 }

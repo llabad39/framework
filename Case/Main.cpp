@@ -25,6 +25,7 @@ int main(){
     }else{
       cout << "Pour Sokoban, il faut un tableau de taille au moins 5" << endl;
       return -1;
+    }
     break;
   default:
     return -1;
