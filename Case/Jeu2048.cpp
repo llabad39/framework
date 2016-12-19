@@ -40,6 +40,7 @@ bool Jeu2048::right(){
 	    }
 	    else
 	      plat(i,k,make_shared<Vide>());
+	    move=true;
 	  }
 	  else if(k!=j){
 	    k--;
@@ -88,9 +89,9 @@ void Jeu2048::place(){
   int x,y;
   int t = getTaille();
   do{
-    srand(time(0));
-    x = rand()%t;
-    y = rand()%t;
+    x = Fonction::aleat(0,t-1);
+    y = Fonction::aleat(0,t-1);
+    cout << x << " " << y << "fin\n";
   }while(!plat.get(x,y)->isEmpty());
   plat(x,y,make_shared<ChiffreBase2>());
   
@@ -104,6 +105,7 @@ bool Jeu2048::endTurn(){
 	plat.get(i,j)->endTurn();
       }
     }
+    cout << "sa marche\n";
     place();
     return true;
   }
@@ -126,12 +128,14 @@ bool Jeu2048::canHor(){
   int t=getTaille();
   for(int i=0;i<t;i++){
     for(int j=0;j<t-1;j++){
-      if(!(plat.get(i,j)->isEmpty() || plat.get(i,j+1))){
+      if(!(plat.get(i,j)->isEmpty() || plat.get(i,j+1)->isEmpty())){
 	shared_ptr<Chiffre> c = static_pointer_cast<Chiffre>(plat.get(i,j));
 	shared_ptr<Chiffre> c2 = static_pointer_cast<Chiffre>(plat.get(i,j+1));
 	if(c->getVal()== c2->getVal() || c->getVal()== -(c2->getVal()))
 	  return true;
       }
+      else
+	return true;
     }
   }
   return false;
@@ -148,7 +152,11 @@ bool Jeu2048::canVert(){
   return m;
 }
 bool Jeu2048::loose(){
-  return false;
+  if(canHor())
+    return false;
+  else if(canVert())
+    return false;
+  return true;
 }
   
 

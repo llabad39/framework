@@ -5,8 +5,7 @@ int Jeu::getTaille(){return plat.getTaille();}
 void Jeu::robostupide(){
   bool joue=false;
   while(joue){
-     srand(time(0));
-     int n = rand()%4; 
+    int n = Fonction::aleat(0,3);
      switch (n) {
      case 0:{
        right();
@@ -31,28 +30,29 @@ void Jeu::robostupide(){
 
 void Jeu::play(){
   int ecrit;
-  bool end=true;
+  bool move;
   while(!(win()||loose())){
     cout << "1 : right(), 2: left(), 3:up(),4:down(),5:quit()\n";
     cin >> ecrit;
     switch (ecrit){
     case 1:
-      right();
+      move = right();
       break;
       
     case 2:
-      left();
+      move =left();
       break;
       
     case 3:
-      up();
+      move =up();
       break;
     
     case 4:
-      down();
+      move = down();
       break;
     case 5:
       ecrit =-1;
+      move = false;
       break;
     default :
       cout << "mauvaise commande\n";
@@ -60,13 +60,13 @@ void Jeu::play(){
       break;
     
     }
+    cout << move << "\n";
+    cout << loose() << "this the looser\n";
     if(ecrit==-1)
       break;
-    if(ecrit !=-2)
-      end = endTurn();
-    if(!end)
-      break;
-    //affiche();
+    if(ecrit !=-2 && move)
+      endTurn();
+    affiche();
     
   }
 }

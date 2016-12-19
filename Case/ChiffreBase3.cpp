@@ -1,8 +1,7 @@
 #include "ChiffreBase3.hpp"
 
 ChiffreBase3::ChiffreBase3(){
-  srand(time(0));
-  int al = rand()%5;
+  int al = Fonction::aleat(0,5);
   if(al==4)
     val = 9;
   else

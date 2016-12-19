@@ -8,8 +8,7 @@ JeuTaquin::JeuTaquin(int t) : Jeu(t){
   }
   for(int i=0; i<t; i++){
     for(int j=0; j<t; j++){
-      srand(time(0));
-      int n = rand()%(l.size());
+      int n = Fonction::aleat(0,(l.size()-1));
       list<int>::iterator it=l.begin();
       for (int k=0; k != n; k++){
 	++it;

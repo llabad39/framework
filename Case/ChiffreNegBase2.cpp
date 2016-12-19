@@ -1,8 +1,7 @@
 #include "ChiffreNegBase2.hpp"
 
 ChiffreNegBase2::ChiffreNegBase2(){
-  srand(time(0));
-  int al = rand()%5;
+  int al = Fonction::aleat(0,5);
   if(al==4)
     val = -4;
   else
