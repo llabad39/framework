@@ -7,7 +7,7 @@
 using namespace std;
 class Vide : public Case{
 public :
-  Vide(){image = "image/Vide";};
+  Vide(){image = "image/Vide.png";};
   bool isEmpty();
   bool moveTo(shared_ptr<Case> c); 
   void affiche() ;

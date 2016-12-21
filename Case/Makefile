@@ -5,7 +5,7 @@ OBJECTS = Case.o Chiffre.o ChiffreBase2.o ChiffreBase3.o ChiffreNegBase2.o Chiff
 
 all: $(EXEC)
 
-main :
+main :	$(OBJECTS)
 	$(CC) $(CFLAGS) -o main Main.cpp $(OBJECTS)
 
 %.o: %.cpp 
@@ -16,4 +16,3 @@ clean:
 	rm -f *~
 proper:	
 	rm -f $(EXEC)
-	rm disk.tfs
