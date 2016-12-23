@@ -28,8 +28,8 @@ bool Jeu2048::right(){
 	k--;
 	if(k!=taille-1){
 	  k++;
-	  shared_ptr<ChiffreFus> c = static_pointer_cast<ChiffreFus>(plat.get(i,j));
-	  shared_ptr<ChiffreFus> c2 = static_pointer_cast<ChiffreFus>(plat.get(i,k));
+	  shared_ptr<Chiffre> c = static_pointer_cast<Chiffre>(plat.get(i,j));
+	  shared_ptr<Chiffre> c2 = static_pointer_cast<Chiffre>(plat.get(i,k));
 	  if(c->moveTo(c2)){
 	    plat(i,j,make_shared<Vide>());
 	    int v= c2->getVal();
@@ -129,8 +129,8 @@ bool Jeu2048::canHor(){
   for(int i=0;i<t;i++){
     for(int j=0;j<t-1;j++){
       if(!(plat.get(i,j)->isEmpty() || plat.get(i,j+1)->isEmpty())){
-	shared_ptr<ChiffreFus> c = static_pointer_cast<ChiffreFus>(plat.get(i,j));
-	shared_ptr<ChiffreFus> c2 = static_pointer_cast<ChiffreFus>(plat.get(i,j+1));
+	shared_ptr<Chiffre> c = static_pointer_cast<Chiffre>(plat.get(i,j));
+	shared_ptr<Chiffre> c2 = static_pointer_cast<Chiffre>(plat.get(i,j+1));
 	if(c->getVal()== c2->getVal() || c->getVal()== -(c2->getVal()))
 	  return true;
       }

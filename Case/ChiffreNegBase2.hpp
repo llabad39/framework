@@ -1,8 +1,8 @@
 #ifndef CHIFFRENEG
 #define CHIFFRENEG
-#include "ChiffreFus.hpp"
+#include "Chiffre.hpp"
 
-class ChiffreNegBase2:public ChiffreFus{
+class ChiffreNegBase2:public Chiffre{
 public :
   ChiffreNegBase2();
 };
