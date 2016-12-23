@@ -6,16 +6,11 @@ JeuTaquin::JeuTaquin(int t) : Jeu(t){
   for(int i=1; i<=t*t; i++){
     l.push_back(i);
   }
-  for(int i=0; i<t; i++){
-    for(int j=0; j<t; j++){
-      int n = Fonction::aleat(0,(l.size()-1));
-      list<int>::iterator it=l.begin();
-      for (int k=0; k != n; k++){
-	++it;
-      }
-      int num=*it;
-      win[i][j]
-     l.erase(it);
+  for(int i=0; i<t; i++){       
+    for(int j=0; j<t; j++){    
+      srand(time(0));          
+      int n = rand()%(l.size());      
+      int num=3;//Fonction::remove(l, n); //on pioche le nième int de la liste 
       if(num!=t*t){
 	plat(i,j,make_shared<ChiffreTaquin>(num));
       }else{
@@ -28,19 +23,18 @@ JeuTaquin::JeuTaquin(int t) : Jeu(t){
   affiche();
 }
 
-bool JeuTaquin::right(){
+bool JeuTaquin::left(){
   int taille = getTaille();
   if(y==(taille-1)){
     return false;
   }else{
     plat.swap(x, y, x, y+1);
     y++;
-
   }
   return true;
 }
 
-bool JeuTaquin::left(){
+bool JeuTaquin::right(){
   if(y==0){
     return false;
   }else{
@@ -50,7 +44,7 @@ bool JeuTaquin::left(){
   return true;
 }
 
-bool JeuTaquin::up(){
+bool JeuTaquin::down(){
   if(x==0){
     return false;
   }else{
@@ -60,7 +54,7 @@ bool JeuTaquin::up(){
   return true;
 }
 
-bool JeuTaquin::down(){
+bool JeuTaquin::up(){
   int taille = getTaille();
   if(x==(taille-1)){
     return false;
@@ -71,16 +65,18 @@ bool JeuTaquin::down(){
   return true;
 }
 
-bool JeuTaquin::win(){
+bool JeuTaquin::win(){  // on vérivie que toutes les cases sont bien au bon endroit
   int taille = getTaille();
   for(int i=0; i<taille; i++){
     for(int j=0; j<taille; j++){
-      if(!plat.get(i,j)==i*taille+j+1 && !(i==(taille-1) && j==(taille-1))){
-	return false;
+      if(!plat.get(i,j)->isEmpty()){
+	shared_ptr<ChiffreTaquin> c = static_pointer_cast<ChiffreTaquin>(plat.get(i,j));
+	if(!(c->getVal()==i*taille+j+1)){
+	  return false;
+	}
       }
     }
   }
-  cout << "gagné !" << endl;
   return true;
 }
 

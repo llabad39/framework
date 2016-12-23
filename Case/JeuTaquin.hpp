@@ -18,6 +18,5 @@ public:
 private :
   int x;
   int y;
-  // vector<vector<int>> win; //enregistre les positions pour vérifier si on a gagné
 };
 #endif

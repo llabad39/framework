@@ -1,14 +1,13 @@
 #include "JeuSokoban.hpp"
-
 JeuSokoban::JeuSokoban(int t) : Jeu(t){
-   for(int i=0; i<t-1; i++){
+  for(int i=0; i<t-1; i++){               //on entoure le plateau de murs
      plat(0,i,make_shared<Mur>());
      plat(i,t-1,make_shared<Mur>());
      plat(t-1,t-1-i,make_shared<Mur>());
      plat(t-1-i,0,make_shared<Mur>());
   }
-  list<pair<int,int>> l;
-  for(int i=1; i<(t-1); i++){
+  list<pair<int,int>> l;                 //création d'une liste qui contient 
+  for(int i=1; i<(t-1); i++){            //les coordonnés des cases
     for(int j=1; j<(t-1); j++){
       pair<int,int> p (i,j);
       l.push_back(p);
@@ -17,12 +16,7 @@ JeuSokoban::JeuSokoban(int t) : Jeu(t){
   int n = Fonction::aleat(0,(t*t)/20)+1; //nombre de caisses/d'objectifs.
   for(int i=0; i<(2*n+1); i++){ 
     int num=Fonction::aleat(0,(l.size()-1));
-    list<pair<int,int>>::iterator it=l.begin();
-    for (int k=0; k != num; k++){
-      ++it;
-    }
-    pair<int,int> p=*it;
-    l.erase(it);
+    pair<int, int> p= Fonction::remove(l,num);
     if(i==(2*n)){         //choix de l'emplacement du personnage
       x=std::get<0>(p);
       y=std::get<1>(p);
@@ -36,7 +30,7 @@ JeuSokoban::JeuSokoban(int t) : Jeu(t){
       }
     }
   }
-  while(!l.empty()){
+  while(!l.empty()){             //les cases restantes sont des murs ou cases vides
     pair<int,int> p=l.front();
     int m = Fonction::aleat(0,9);
     if(!(m==0)){
@@ -49,14 +43,13 @@ JeuSokoban::JeuSokoban(int t) : Jeu(t){
   affiche();
 }
 
-bool JeuSokoban::right(){
+bool JeuSokoban::right(){  
   int taille = getTaille();
   if(y==(taille-2)){
     return false;
   }else{
     if(plat.get(x,y+1)->isEmpty())
       y++;
-    
     else if(!(y+2==taille) && plat.get(x,y+1)->moveTo(plat.get(x,y+2))){
       plat.swap(x,y+1,x,y+2);
       y++;
@@ -115,18 +108,17 @@ bool JeuSokoban::up(){
 }
 
 bool JeuSokoban::win(){
-  for (std::list<pair<int,int>>::iterator i = objectifs.begin(); i != objectifs.end(); ++i) {  
+  for (list<pair<int,int>>::iterator i = objectifs.begin(); i != objectifs.end(); ++i) {  
   if(plat.get(std::get<0>(*i),std::get<1>(*i))->isEmpty()){
     return false;
   }
  }
-  cout << "gagné !" << endl;
  return true;
 }
 
-void JeuSokoban::affiche(){
-  int taille = getTaille();
-  for(int i=0;i<taille;i++){
+void JeuSokoban::affiche(){ //le affiche de plateau ne convient pas car il faut
+  int taille = getTaille(); //afficher le personnage et les objectifs qui 
+  for(int i=0;i<taille;i++){//sont contenus dans la classe JeuSokoban
     cout << "|" ;
     for(int j =0;j<taille;j++){
       if(!plat.get(i,j)->isEmpty()){
@@ -134,7 +126,7 @@ void JeuSokoban::affiche(){
       }else{
 	if(i==x && j==y){
 	  cout << "P";
-	}else{
+	}else{ 
 	  pair<int,int> p (i,j);
 	  if(find(objectifs.begin(), objectifs.end(), p) != objectifs.end()){
 	    cout << "O";
