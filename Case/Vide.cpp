@@ -9,4 +9,4 @@ bool Vide::moveTo(shared_ptr<Case> c){
 }
 
 void Vide::affiche(){ cout << " "; }
-void Vide::endTurn(){};
+void Vide::endTurn(){image = "image/vide.png";};
