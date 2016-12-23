@@ -63,6 +63,13 @@ bool Jeu2048::down(){
   plat.rotation();
   plat.rotation();
   plat.rotation();
+  for(int i =0;i<getTaille();i++){
+    cout << "i :" << i << " ";
+    for(int j =0;j<getTaille();j++){
+      cout << plat.get(i,j)->getImage() << " ";
+    }
+    cout << "\n";
+  }
   return move;
 }
 
