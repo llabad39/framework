@@ -1,7 +1,7 @@
 #include "Jeu2048.hpp"
 #include "JeuTaquin.hpp"
 #include "JeuSokoban.hpp"
-#include "Jeu2048Plus.hpp"
+//#include "Jeu2048Plus.hpp"
 #include <iostream>
 #include <SFML/Graphics.hpp>
 int main(){
@@ -29,7 +29,7 @@ int main(){
     }
     break;
   case 4:
-    j=new Jeu2048Plus(taille);
+    //  j=new Jeu2048Plus(taille);
     break;
   default:
     return -1;

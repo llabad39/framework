@@ -1,7 +1,7 @@
 #ifndef JEU2048
 #define JEU2048
 #include "Jeu.hpp"
-#include "ChiffreBase2.hpp"
+//#include "ChiffreBase2.hpp"
 
 class Jeu2048 :  public Jeu{
 public:

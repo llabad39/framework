@@ -15,7 +15,8 @@ JeuTaquin::JeuTaquin(int t) : Jeu(t){
 	++it;
       }
       int num=*it;
-      l.erase(it);
+      win[i][j]
+     l.erase(it);
       if(num!=t*t){
 	plat(i,j,make_shared<ChiffreTaquin>(num));
       }else{
@@ -80,6 +81,7 @@ bool JeuTaquin::win(){
       }
     }
   }
+  cout << "gagné !" << endl;
   return true;
 }
 
