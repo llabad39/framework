@@ -5,6 +5,7 @@
 #include <memory>
 #include <algorithm>
 #include <string>
+#include "Fonction.hpp"
 using namespace std;
 
 class Case{

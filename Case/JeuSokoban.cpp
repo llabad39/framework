@@ -14,10 +14,9 @@ JeuSokoban::JeuSokoban(int t) : Jeu(t){
       l.push_back(p);
     }
   }
-  srand(time(0));
-  int n = (rand()%((t*t)/20))+1; //nombre de caisses/d'objectifs.
+  int n = Fonction::aleat(0,(t*t)/20)+1; //nombre de caisses/d'objectifs.
   for(int i=0; i<(2*n+1); i++){ 
-    int num=rand()%(l.size());
+    int num=Fonction::aleat(0,(l.size()-1));
     list<pair<int,int>>::iterator it=l.begin();
     for (int k=0; k != num; k++){
       ++it;
@@ -39,7 +38,7 @@ JeuSokoban::JeuSokoban(int t) : Jeu(t){
   }
   while(!l.empty()){
     pair<int,int> p=l.front();
-    int m = rand()%10;
+    int m = Fonction::aleat(0,9);
     if(!(m==0)){
       plat(std::get<0>(p),std::get<1>(p),make_shared<Vide>());
     }else{
