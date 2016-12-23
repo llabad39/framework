@@ -7,13 +7,4 @@ int Fonction::aleat(int x,int y){
   return uid(dre);
 } 
 
-template <class T>
-T Fonction::remove(list<T> l, int n){
-   typename list<T>::iterator it=l.begin();
-  for (int k=0; k != n; k++){
-    ++it;
-  }
-  T p=*it;
-  l.erase(it);
-  return p;
-}
+
