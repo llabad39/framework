@@ -1,8 +1,8 @@
 #ifndef CHIFFREBASE2
 #define CHIFFREBASE2
-#include "Chiffre.hpp"
+#include "ChiffreFus.hpp"
 
-class ChiffreBase2:public Chiffre{
+class ChiffreBase2:public ChiffreFus{
 public :
   ChiffreBase2();
 };

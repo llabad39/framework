@@ -1,7 +1,7 @@
 #ifndef PLATEAU
 #define PLATEAU
 #include "Chiffre.hpp"
-#include "ChiffreTaquin.hpp"
+#include "ChiffreFus.hpp"
 #include "Vide.hpp"
 #include "Caisse.hpp"
 #include "Mur.hpp"

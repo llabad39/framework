@@ -16,7 +16,7 @@ JeuTaquin::JeuTaquin(int t) : Jeu(t){
       int num=*it;
       l.erase(it);
       if(num!=t*t){
-	plat(i,j,make_shared<ChiffreTaquin>(num));
+	plat(i,j,make_shared<Chiffre>(num));
       }else{
 	plat(i,j,make_shared<Vide>());
 	x=i;
