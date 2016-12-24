@@ -11,8 +11,13 @@ void griddraw(){
     for(int j=0;j<taille;j++){
       sf::Texture texture;
       texture.loadFromFile(jeu.get(i,j)->getImage());
+      sf::Text t;
+      /*t.setString("4");
+      t.setPosition(19*j,19*i);
+      tileText.setCharacterSize(32);*/
       sprite[i][j].setTexture(texture);
       sprite[i][j].setPosition(38*j,38*i);
+      window.draw(t);
       window.draw(sprite[i][j]);
     }
   }
@@ -21,8 +26,7 @@ void griddraw(){
 int main(){
   while (window.isOpen()) {
     sf::Event event;
-    griddraw();
-    window.display();
+   
     while (window.pollEvent(event)) {
       if (event.type == sf::Event::Closed) {
 	window.close();
@@ -31,22 +35,18 @@ int main(){
 	bool played;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
 	  played = jeu.up();
-	  griddraw();
 	  window.display();
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
 	  played= jeu.right();
-	  griddraw();
 	  window.display();
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
 	  played = jeu.down();
-	  griddraw();
 	  window.display();
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
 	  played = jeu.left();
-	  griddraw();
 	  window.display();
 	}
 	else{
@@ -57,8 +57,9 @@ int main(){
 	jeu.affiche();
 	
       }
-      window.clear();
     }
+     griddraw();
+     window.display();
   }
 }
 

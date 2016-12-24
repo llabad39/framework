@@ -10,7 +10,7 @@ JeuTaquin::JeuTaquin(int t) : Jeu(t){
     for(int j=0; j<t; j++){    
       srand(time(0));          
       int n = rand()%(l.size());      
-      int num=3;//Fonction::remove(l, n); //on pioche le nième int de la liste 
+      int num = Fonction::remove(&l, n); //on pioche le nième int de la liste 
       if(num!=t*t){
 	plat(i,j,make_shared<ChiffreTaquin>(num));
       }else{

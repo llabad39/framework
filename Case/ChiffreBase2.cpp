@@ -7,4 +7,6 @@ ChiffreBase2::ChiffreBase2(){
   else
     val = 2;
   aFus = false;
+  image = "image/"+to_string(val)+".png";
+
 }

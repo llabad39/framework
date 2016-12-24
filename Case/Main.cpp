@@ -1,13 +1,12 @@
-//#include "Jeu2048.hpp"
+#include "Jeu2048.hpp"
 #include "JeuTaquin.hpp"
-//#include "JeuSokoban.hpp"
-//#include "Jeu2048Plus.hpp"
+#include "JeuSokoban.hpp"
+#include "Jeu2048Plus.hpp"
 #include <iostream>
 #include <SFML/Graphics.hpp>
 int main(){
-  JeuTaquin j(7);
-  j.play();
-  /* Jeu *j;
+  
+   Jeu *j;
   int taille;
   int jeu;
   
@@ -31,11 +30,11 @@ int main(){
     }
     break;
   case 4:
-    //  j=new Jeu2048Plus(taille);
+    j=new Jeu2048Plus(taille);
     break;
   default:
     return -1;
   }
-  j->play();*/
+  j->play();
   
 }

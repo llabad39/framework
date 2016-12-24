@@ -32,7 +32,7 @@ void Jeu::play(){
   int ecrit;
   bool move;
   while(!(win()||loose())){
-    cout << "1 : right(), 2: left(), 3:up(),4:down(),5:quit()\n";
+    cout << "6 : right(), 4: left(), 8:up(),2:down(),5:quit()\n";
     cin >> ecrit;
     switch (ecrit){
     case 6:

@@ -16,7 +16,7 @@ JeuSokoban::JeuSokoban(int t) : Jeu(t){
   int n = Fonction::aleat(0,(t*t)/20)+1; //nombre de caisses/d'objectifs.
   for(int i=0; i<(2*n+1); i++){ 
     int num=Fonction::aleat(0,(l.size()-1));
-    pair<int, int> p= Fonction::remove(l,num);
+    pair<int, int> p= Fonction::remove(&l,num);
     if(i==(2*n)){         //choix de l'emplacement du personnage
       x=std::get<0>(p);
       y=std::get<1>(p);

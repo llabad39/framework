@@ -3,14 +3,7 @@
 bool Chiffre::isEmpty(){
   return false;
 }
-Chiffre::Chiffre():aFus(false){
-  srand(time(0));
-  int al = rand()%5;
-  if(al==4)
-    val = 4;
-  else
-    val = 2;
-  image = "image/"+to_string(val)+".png";
+Chiffre::Chiffre():aFus(false){  
 }
 
 Chiffre::Chiffre(Chiffre& c):val(c.getVal()),aFus(false){
