@@ -7,4 +7,6 @@ ChiffreNegBase2::ChiffreNegBase2(){
   else
     val = -2;
   aFus = false;
+  image = to_string(val);
+
 }

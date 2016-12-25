@@ -14,6 +14,8 @@ public:
   bool win();
   bool endTurn();
   void affiche();
+  bool isObj(int x,int y);
+  bool isPers(int x,int y);
 private :
   int x;
   int y;

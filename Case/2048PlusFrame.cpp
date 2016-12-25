@@ -1,14 +1,14 @@
 #include <SFML/Graphics.hpp>
-#include "Jeu2048.hpp"
+#include "Jeu2048Plus.hpp"
 
-sf::RenderWindow window(sf::VideoMode(480, 700), "2048");
+sf::RenderWindow window(sf::VideoMode(480, 700), "2048Plus");
 sf::Text caseText;
 sf::Text titleGame;
 sf::Text consigne;
 sf::Text endText;
 sf::RectangleShape caseBack(sf::Vector2f(100, 100));
 sf::Color textColor(255, 255, 255, 255);
-Jeu2048 jeu(4);
+Jeu2048Plus jeu(4);
 bool win;
 bool loose;
 void griddraw(){
@@ -83,7 +83,7 @@ int main(){
   titleGame.setFont(fontT);
   titleGame.setFillColor(sf::Color(0,100,0,255));
   
-  consigne.setString("fusionner les cases pour faire 2048\nappuyer sur espace pour recommencer");
+  consigne.setString("fusionner les cases pour faire 2048\nattention aux impairs et negatifs\nappuyer sur espace pour recommencer");
   consigne.setPosition(10,600);
   consigne.setFont(fontCons);
   consigne.setCharacterSize(20);
@@ -120,7 +120,7 @@ int main(){
 	  window.display();
 	}
 	else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
-	  jeu = Jeu2048(4);
+	  jeu = Jeu2048Plus(4);
 	  played=false;
 	  win=false;
 	}
@@ -134,6 +134,7 @@ int main(){
 	}
 	if(played)
 	  jeu.endTurn();
+	jeu.affiche();
       }
     }
     win = jeu.win();
@@ -142,5 +143,3 @@ int main(){
     window.display();
   }
 }
-
-

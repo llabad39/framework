@@ -4,7 +4,7 @@
 
 class Caisse : public Case{
 public :
-  Caisse(){};
+  Caisse(){image="image/caisse.png";};
   virtual bool isEmpty();
   virtual bool moveTo(shared_ptr<Case> c);
   virtual void affiche();

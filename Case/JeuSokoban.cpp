@@ -124,11 +124,10 @@ void JeuSokoban::affiche(){ //le affiche de plateau ne convient pas car il faut
       if(!plat.get(i,j)->isEmpty()){
 	plat.get(i,j)->affiche();
       }else{
-	if(i==x && j==y){
+	if(isPers(i,j)){
 	  cout << "P";
 	}else{ 
-	  pair<int,int> p (i,j);
-	  if(find(objectifs.begin(), objectifs.end(), p) != objectifs.end()){
+	  if(isObj(i,j)){
 	    cout << "O";
 	  }else{
 	    plat.get(i,j)->affiche();
@@ -141,6 +140,20 @@ void JeuSokoban::affiche(){ //le affiche de plateau ne convient pas car il faut
   }
 }
 
+bool JeuSokoban::isObj(int i,int j){
+  pair<int,int> p (i,j);
+  if(find(objectifs.begin(), objectifs.end(), p) != objectifs.end())
+    return true;
+  else
+    return false;
+}
+
+bool JeuSokoban::isPers(int i,int j){
+  if(i==x && j==y)
+    return true;
+  else
+    return false;
+}
 bool JeuSokoban::endTurn(){
   if(!(win() || loose()))
     return true;

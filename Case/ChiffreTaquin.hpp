@@ -7,7 +7,7 @@
 using namespace std;
 class ChiffreTaquin : public Case{
 public :
-  ChiffreTaquin(int v):val(v){};
+  ChiffreTaquin(int v):val(v){image = to_string(v);};
   virtual bool isEmpty();
   virtual bool moveTo(shared_ptr<Case> c);
   int getVal();

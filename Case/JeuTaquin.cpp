@@ -23,7 +23,7 @@ JeuTaquin::JeuTaquin(int t) : Jeu(t){
   affiche();
 }
 
-bool JeuTaquin::left(){
+bool JeuTaquin::right(){
   int taille = getTaille();
   if(y==(taille-1)){
     return false;
@@ -34,7 +34,7 @@ bool JeuTaquin::left(){
   return true;
 }
 
-bool JeuTaquin::right(){
+bool JeuTaquin::left(){
   if(y==0){
     return false;
   }else{
@@ -44,7 +44,7 @@ bool JeuTaquin::right(){
   return true;
 }
 
-bool JeuTaquin::down(){
+bool JeuTaquin::up(){
   if(x==0){
     return false;
   }else{
@@ -54,7 +54,7 @@ bool JeuTaquin::down(){
   return true;
 }
 
-bool JeuTaquin::up(){
+bool JeuTaquin::down(){
   int taille = getTaille();
   if(x==(taille-1)){
     return false;

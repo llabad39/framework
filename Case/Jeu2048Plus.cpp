@@ -5,11 +5,10 @@ void Jeu2048Plus::place(){
   int type;
   int t = getTaille();
   srand(time(0));
-  type = rand()%10;
+  type = Fonction::aleat(0,10);
   do{
-    srand(time(0));
-    x = rand()%t;
-    y = rand()%t;
+    x = Fonction::aleat(0,t-1);
+    y = Fonction::aleat(0,t-1);
   }while(!plat.get(x,y)->isEmpty());
   if(type < 5)
     plat(x,y,make_shared<ChiffreBase2>());
@@ -20,4 +19,4 @@ void Jeu2048Plus::place(){
   
 }
 
-Jeu2048Plus::Jeu2048Plus(int taille):Jeu2048(taille){place();}
+Jeu2048Plus::Jeu2048Plus(int taille):Jeu2048(taille){}

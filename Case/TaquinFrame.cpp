@@ -1,31 +1,29 @@
 #include <SFML/Graphics.hpp>
-#include "Jeu2048.hpp"
+#include "JeuTaquin.hpp"
 
-sf::RenderWindow window(sf::VideoMode(480, 700), "2048");
+sf::RenderWindow window(sf::VideoMode(480, 700), "Taquin");
 sf::Text caseText;
 sf::Text titleGame;
 sf::Text consigne;
-sf::Text endText;
+sf::Text winText;
 sf::RectangleShape caseBack(sf::Vector2f(100, 100));
 sf::Color textColor(255, 255, 255, 255);
-Jeu2048 jeu(4);
+JeuTaquin jeu(4);
 bool win;
-bool loose;
 void griddraw(){
   window.clear(sf::Color(102,102,102,255));
   int taille = jeu.getTaille();
   window.draw(titleGame);
   window.draw(consigne);
-  if(!win && !loose){
+  if(!win){
     for(int i=0;i<taille;i++){
       for(int j=0;j<taille;j++){
       	caseBack.setPosition(105*j+30,105*i+150);
 	if(!jeu.get(i,j)->isEmpty()){
-	  caseBack.setFillColor(sf::Color(252, 220, 18,255));
+	  caseBack.setFillColor(sf::Color(165,42,42,255));
 	  caseText.setString(jeu.get(i,j)->getImage());
-	  int dec = jeu.get(i,j)->getImage().length();
-	  caseText.setPosition(105*j+65-(dec-1)*10,105*i+195);
-	  caseText.setCharacterSize(35-(dec-1)*5);
+	  caseText.setPosition(105*j+65,105*i+195);
+	  caseText.setCharacterSize(35);
 	  window.draw(caseBack);
 	  window.draw(caseText);
 	}
@@ -37,19 +35,8 @@ void griddraw(){
     }
   }
   else{
-    if(win){
-      endText.setString("YOU\nWIN");
-      endText.setCharacterSize(200);
-      endText.setPosition(60,150);
-    }
-    else{
-      endText.setString(" YOU\nLOOSE");
-      endText.setCharacterSize(150);
-      endText.setPosition(25,150);
-    }
-    window.draw(endText);
+    window.draw(winText);
   }
-    
 }
 
 int main(){
@@ -77,23 +64,24 @@ int main(){
   caseText.setCharacterSize(4);
   caseText.setFillColor(textColor);
   
-  titleGame.setString("2048");
+  titleGame.setString("Taquin");
   titleGame.setPosition(80,0);
   titleGame.setCharacterSize(120);
   titleGame.setFont(fontT);
   titleGame.setFillColor(sf::Color(0,100,0,255));
   
-  consigne.setString("fusionner les cases pour faire 2048\nappuyer sur espace pour recommencer");
+  consigne.setString("remettez les chiffres dans le bonne ordre\nappuyer sur espace pour recommencer");
   consigne.setPosition(10,600);
   consigne.setFont(fontCons);
   consigne.setCharacterSize(20);
 
-  
-  endText.setFont(fontWin);
-  endText.setFillColor(sf::Color::Black);
+  winText.setString("YOU\nWIN");
+  winText.setPosition(60,150);
+  winText.setFont(fontWin);
+  winText.setCharacterSize(200);
+  winText.setFillColor(sf::Color::Black);
   
   win=false;
-  loose=false;
   while (window.isOpen()) {
     sf::Event event;
    
@@ -120,12 +108,12 @@ int main(){
 	  window.display();
 	}
 	else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
-	  jeu = Jeu2048(4);
+	  jeu = JeuTaquin(4);
 	  played=false;
 	  win=false;
 	}
 	else if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
-	  loose = true;
+	  win = true;
 	  played=false;
 	  window.display();
 	}
@@ -133,14 +121,11 @@ int main(){
 	  played=false;
 	}
 	if(played)
-	  jeu.endTurn();
+	  jeu.endTurn();	
       }
     }
     win = jeu.win();
-    loose = jeu.loose();
     griddraw();
     window.display();
   }
 }
-
-

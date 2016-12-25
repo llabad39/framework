@@ -7,4 +7,6 @@ ChiffreBase3::ChiffreBase3(){
   else
     val = 3;
   aFus = false;
+  image = to_string(val);
+
 }

@@ -4,7 +4,7 @@
 
 class Mur : public Case{
 public :
-  Mur(){};
+  Mur(){image = "image/mur.png";};
   virtual bool isEmpty();
   virtual bool moveTo(shared_ptr<Case> c);
   virtual void affiche();

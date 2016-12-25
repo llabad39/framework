@@ -41,7 +41,7 @@ bool Chiffre::moveTo(shared_ptr<Case> c){
 }
 
 void Chiffre::endTurn(){
-  image = "image/"+to_string(val)+".png";
+  image = to_string(val);
   aFus=false;
   
 }

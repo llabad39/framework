@@ -25,9 +25,7 @@ bool Jeu2048::right(){
 	    break;
 	  }
 	}
-	k--;
-	if(k!=taille-1){
-	  k++;
+	if(k!=taille){
 	  shared_ptr<Chiffre> c = static_pointer_cast<Chiffre>(plat.get(i,j));
 	  shared_ptr<Chiffre> c2 = static_pointer_cast<Chiffre>(plat.get(i,k));
 	  if(c->moveTo(c2)){
@@ -48,6 +46,7 @@ bool Jeu2048::right(){
 	  }
 	}
 	else if(k!=j){
+	  k--;
 	  plat.swap(i,j,i,k);
 	}
       }
@@ -63,13 +62,6 @@ bool Jeu2048::down(){
   plat.rotation();
   plat.rotation();
   plat.rotation();
-  for(int i =0;i<getTaille();i++){
-    cout << "i :" << i << " ";
-    for(int j =0;j<getTaille();j++){
-      cout << plat.get(i,j)->getImage() << " ";
-    }
-    cout << "\n";
-  }
   return move;
 }
 
@@ -98,7 +90,6 @@ void Jeu2048::place(){
   do{
     x = Fonction::aleat(0,t-1);
     y = Fonction::aleat(0,t-1);
-    cout << x << " " << y << "fin\n";
   }while(!plat.get(x,y)->isEmpty());
   plat(x,y,make_shared<ChiffreBase2>());
   
@@ -112,13 +103,11 @@ bool Jeu2048::endTurn(){
 	plat.get(i,j)->endTurn();
       }
     }
-    cout << "sa marche\n";
     place();
     return true;
   }
   else
-    cout << "pas du tout";
-  return false;
+    return false;
 }
 void Jeu2048::affiche(){
   plat.affiche();
