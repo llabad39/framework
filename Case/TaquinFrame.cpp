@@ -62,13 +62,13 @@ int main(){
   }
   caseText.setFont(fontC);
   caseText.setCharacterSize(4);
-  caseText.setFillColor(textColor);
+  caseText.setColor(textColor);
   
   titleGame.setString("Taquin");
   titleGame.setPosition(80,0);
   titleGame.setCharacterSize(120);
   titleGame.setFont(fontT);
-  titleGame.setFillColor(sf::Color(0,100,0,255));
+  titleGame.setColor(sf::Color(0,100,0,255));
   
   consigne.setString("remettez les chiffres dans le bonne ordre\nappuyer sur espace pour recommencer");
   consigne.setPosition(10,600);
@@ -79,7 +79,7 @@ int main(){
   winText.setPosition(60,150);
   winText.setFont(fontWin);
   winText.setCharacterSize(200);
-  winText.setFillColor(sf::Color::Black);
+  winText.setColor(sf::Color::Black);
   
   win=false;
   while (window.isOpen()) {

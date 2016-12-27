@@ -75,13 +75,13 @@ int main(){
   }
   caseText.setFont(fontC);
   caseText.setCharacterSize(4);
-  caseText.setFillColor(textColor);
+  caseText.setColor(textColor);
   
   titleGame.setString("2048");
   titleGame.setPosition(80,0);
   titleGame.setCharacterSize(120);
   titleGame.setFont(fontT);
-  titleGame.setFillColor(sf::Color(0,100,0,255));
+  titleGame.setColor(sf::Color(0,100,0,255));
   
   consigne.setString("fusionner les cases pour faire 2048\nappuyer sur espace pour recommencer");
   consigne.setPosition(10,600);
@@ -90,7 +90,7 @@ int main(){
 
   
   endText.setFont(fontWin);
-  endText.setFillColor(sf::Color::Black);
+  endText.setColor(sf::Color::Black);
   
   win=false;
   loose=false;

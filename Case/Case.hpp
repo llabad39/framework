@@ -7,15 +7,30 @@
 #include <string>
 #include "Fonction.hpp"
 using namespace std;
-
+/*!
+ * \class Case
+ * \brief classe abstraite qui représente une case du plateau
+ */
 class Case{
 public :
-  virtual bool isEmpty()=0;                 //renvoie true ssi la case est de type Vide
-  virtual bool moveTo(shared_ptr<Case> c)=0; //fonction de déplacement
-  virtual void endTurn()=0;                 //fonction des choses a faire a la fin du tour.
+  /*!
+     *  \return  true ssi la case est de type Vide
+     */
+  virtual bool isEmpty()=0;    
+  /*!
+     *  \brief fonction de déplacement
+     *  \param c : case sur laquelle on va aller
+     *  \return true si on a pu bouger, false sinon
+     */             
+  virtual bool moveTo(shared_ptr<Case> c)=0; 
+  /*!
+     *  \brief fonction des choses a faire a la fin du tour.
+     */
+  virtual void endTurn()=0;
   virtual void affiche()=0;
   string getImage();
 protected :
+  /*! adresse de l'image de la case */ 
   string image;
 
 };
