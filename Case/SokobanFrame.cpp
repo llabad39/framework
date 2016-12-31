@@ -69,7 +69,7 @@ int main(){
   titleGame.setPosition(350,0);
   titleGame.setCharacterSize(120);
   titleGame.setFont(fontT);
-  titleGame.setFillColor(sf::Color(0,100,0,255));
+  titleGame.setColor(sf::Color(0,100,0,255));
   
   consigne.setString("poussez les caisses sur les objectifs\nappuyer sur espace pour recommencer");
   consigne.setPosition(10,1150);
@@ -80,7 +80,7 @@ int main(){
   winText.setPosition(100,100);
   winText.setFont(fontWin);
   winText.setCharacterSize(500);
-  winText.setFillColor(sf::Color::Black);
+  winText.setColor(sf::Color::Black);
   
   win=false;
   while (window.isOpen()) {

@@ -5,7 +5,6 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 int main(){
-  
    Jeu *j;
   int taille;
   int jeu;
@@ -36,5 +35,4 @@ int main(){
     return -1;
   }
   j->play();
-  
 }

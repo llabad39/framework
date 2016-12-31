@@ -10,16 +10,16 @@ main :	$(OBJECTS)
 	$(CC) $(CFLAGS) -o main Main.cpp $(OBJECTS)
 
 2048 :	$(OBJECTS)
-	$(CC) $(CFLAGS) -o 2048 2048Frame.cpp $(OBJECTS) $(SFMLFLAGS)
+	$(CC) $(CFLAGS) 2048Frame.cpp -o 2048  $(SFMLFLAGS) $(OBJECTS)
 
 Taquin :	$(OBJECTS)
-	$(CC) $(CFLAGS) $(SFMLFLAGS) -o Taquin TaquinFrame.cpp $(OBJECTS)
+	$(CC) $(CFLAGS) TaquinFrame.cpp -o Taquin $(SFMLFLAGS)  $(OBJECTS)
 
 2048Plus :	$(OBJECTS)
-	$(CC) $(CFLAGS) $(SFMLFLAGS) -o 2048Plus 2048PlusFrame.cpp $(OBJECTS)
+	$(CC) $(CFLAGS) 2048PlusFrame.cpp -o 2048Plus $(SFMLFLAGS)  $(OBJECTS)
 
 Sokoban : 	$(OBJECTS)
-	$(CC) $(CFLAGS) $(SFMLFLAGS) -o Sokoban SokobanFrame.cpp $(OBJECTS)
+	$(CC) $(CFLAGS) SokobanFrame.cpp -o Sokoban $(SFMLFLAGS)  $(OBJECTS)
 
 
 %.o: %.cpp 
