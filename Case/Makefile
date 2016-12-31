@@ -7,10 +7,10 @@ OBJECTS = Case.o Chiffre.o ChiffreBase2.o ChiffreBase3.o ChiffreNegBase2.o Chiff
 all: $(EXEC)
 
 main :	$(OBJECTS)
-	$(CC) $(CFLAGS) $(SFMLFLAGS) -o main Main.cpp $(OBJECTS)
+	$(CC) $(CFLAGS) -o main Main.cpp $(OBJECTS)
 
 2048 :	$(OBJECTS)
-	$(CC) $(CFLAGS) $(SFMLFLAGS) -o 2048 2048Frame.cpp $(OBJECTS)
+	$(CC) $(CFLAGS) -o 2048 2048Frame.cpp $(OBJECTS) $(SFMLFLAGS)
 
 Taquin :	$(OBJECTS)
 	$(CC) $(CFLAGS) $(SFMLFLAGS) -o Taquin TaquinFrame.cpp $(OBJECTS)
