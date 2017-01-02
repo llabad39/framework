@@ -5,6 +5,6 @@ int Fonction::aleat(int x,int y){
   default_random_engine dre(seed);
   uniform_int_distribution<int> uid(x,y);
   return uid(dre);
-} 
+  } 
 
-
+ 

@@ -63,12 +63,9 @@ void Jeu::play(){
       break;
     
     }
-<<<<<<< HEAD
     cout << "\n";
     cout << "\n";
-=======
-   
->>>>>>> 0026d2dd10e6280d3bcd9c09a475b897a0aee651
+
     if(ecrit==-1)
       break;//on sort de la boucle
     if(ecrit !=-2 && move)
