@@ -54,6 +54,7 @@ public:
      */     
   void play();
   void robostupide();
+  bool oneMove();
   shared_ptr<Case> get(int x,int y);
   int getTaille();
   

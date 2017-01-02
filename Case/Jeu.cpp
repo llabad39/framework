@@ -5,29 +5,35 @@ int Jeu::getTaille(){return plat.getTaille();}
 void Jeu::robostupide(){
   bool joue=false;
   while(joue){
-    int n = Fonction::aleat(0,3);
-     switch (n) {
-     case 0:{
-       right();
-       break;
-     }
-     case 1:{
-       left();
-       break;
-     }
-     case 2:{
-       up();
-       break;
-     }
-     case 3:{
-       down();
-       break;
-     }
-     }
-     joue=!(win() || loose());
+    joue = oneMove();
   }
 }
 
+bool Jeu::oneMove(){
+  if(!(win() || loose())){
+    bool play = false;
+    while(!play){
+      int n = Fonction::aleat(0,3);
+      switch (n) {
+      case 0:
+	play =right();
+	break;
+      case 1:
+	play=left();
+	break;
+      case 2:
+	play=up();
+	break;
+      case 3:
+	play=down();
+	break;
+      }
+    }
+    return true;
+  }
+  else
+    return false;
+}
 void Jeu::play(){
   int ecrit;
   bool move;
