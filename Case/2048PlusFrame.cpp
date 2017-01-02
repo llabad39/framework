@@ -2,11 +2,11 @@
 #include "Jeu2048Plus.hpp"
 
 sf::RenderWindow window(sf::VideoMode(480, 700), "2048Plus");
-sf::Text caseText;
+sf::Text caseText;//texte nécessaire au jeu
 sf::Text titleGame;
 sf::Text consigne;
 sf::Text endText;
-sf::RectangleShape caseBack(sf::Vector2f(100, 100));
+sf::RectangleShape caseBack(sf::Vector2f(100, 100));//carré pour les cases
 sf::Color textColor(255, 255, 255, 255);
 Jeu2048Plus jeu(4);
 bool win;
@@ -14,10 +14,10 @@ bool loose;
 void griddraw(){
   window.clear(sf::Color(102,102,102,255));
   int taille = jeu.getTaille();
-  window.draw(titleGame);
+  window.draw(titleGame);//écriture des textes fixes
   window.draw(consigne);
   if(!win && !loose){
-    for(int i=0;i<taille;i++){
+    for(int i=0;i<taille;i++){//dessin de chaque case du plateau
       for(int j=0;j<taille;j++){
       	caseBack.setPosition(105*j+30,105*i+150);
 	if(!jeu.get(i,j)->isEmpty()){
@@ -36,7 +36,7 @@ void griddraw(){
       }
     }
   }
-  else{
+  else{//sinon écriture du texte de fin:gagné où perdu
     if(win){
       endText.setString("YOU\nWIN");
       endText.setCharacterSize(200);
@@ -57,7 +57,7 @@ int main(){
   sf::Font fontT;
   sf::Font fontCons;
   sf::Font fontWin;
-  if (!fontC.loadFromFile("police/emmasophia.ttf")) {
+  if (!fontC.loadFromFile("police/emmasophia.ttf")) {//chargement des polices
 		printf("can't find font");
 		return -1;
   }
@@ -77,13 +77,13 @@ int main(){
   caseText.setCharacterSize(4);
   caseText.setColor(textColor);
   
-  titleGame.setString("2048");
-  titleGame.setPosition(80,0);
+  titleGame.setString("2048Plus");//mise en place du texte du titre
+  titleGame.setPosition(10,0);
   titleGame.setCharacterSize(120);
   titleGame.setFont(fontT);
   titleGame.setColor(sf::Color(0,100,0,255));
   
-  consigne.setString("fusionner les cases pour faire 2048\nattention aux impairs et negatifs\nappuyer sur espace pour recommencer");
+  consigne.setString("fusionner les cases pour faire 2048\nattention aux impairs et negatifs\nappuyer sur espace pour recommencer");//mise en place du texte des consignes
   consigne.setPosition(10,600);
   consigne.setFont(fontCons);
   consigne.setCharacterSize(20);
@@ -94,7 +94,7 @@ int main(){
   
   win=false;
   loose=false;
-  while (window.isOpen()) {
+  while (window.isOpen()) {//on s'occupes des evenemments lorsque la fenêtre est ouverte
     sf::Event event;
    
     while (window.pollEvent(event)) {
@@ -129,17 +129,19 @@ int main(){
 	  played=false;
 	  window.display();
 	}
+	else if(sf::Keyboard::isKeyPressed(sf::Keyboard::R)){//jouer en mode automatique
+	  played = jeu.oneMove();
+	}
 	else{
 	  played=false;
 	}
 	if(played)
 	  jeu.endTurn();
-	jeu.affiche();
       }
     }
     win = jeu.win();
     loose = jeu.loose();
-    griddraw();
+    griddraw();//on dessine la fenêtre
     window.display();
   }
 }

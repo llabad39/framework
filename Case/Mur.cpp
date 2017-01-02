@@ -1,11 +1,11 @@
 #include "Mur.hpp"
 
 bool Mur::isEmpty(){
-  return false;
+  return false;//un mur n'est jamais vide
 }
 
 bool Mur::moveTo(shared_ptr<Case> c){
-  return false;
+  return false;//on ne peut bouger un mur
 
 }
 void Mur::affiche(){

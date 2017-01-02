@@ -44,18 +44,18 @@ JeuSokoban::JeuSokoban(int t) : Jeu(t){
 }
 
 bool JeuSokoban::right(){  
-  int taille = getTaille();
-  if(y==(taille-2)){
+  int taille = getTaille();//récupère la taille
+  if(y==(taille-2)){//si on est dans un coin droit on ne peut pas bouger
     return false;
   }else{
-    if(plat.get(x,y+1)->isEmpty())
+    if(plat.get(x,y+1)->isEmpty())//si à droite du personnage il y à une case vide on se déplace
       y++;
     else if(!(y+2==taille) && plat.get(x,y+1)->moveTo(plat.get(x,y+2))){
-      plat.swap(x,y+1,x,y+2);
+      plat.swap(x,y+1,x,y+2);//si on peut déplacer l'objet à droite et qu'il ne se situe pas dans un coin on le déplace
       y++;
     }
     else{
-      return false;
+      return false;//sinon on ne peut se déplacer
     }
   }
   return true;
@@ -63,15 +63,15 @@ bool JeuSokoban::right(){
 
 bool JeuSokoban::down(){
   int t= getTaille();
-  plat.rotation();
-  int a= x;
+  plat.rotation();//on effectue une rotation pour se déplacer vers la droite
+  int a= x;//on replace le personnage en conséquence
   x=t-y-1;
   y=a;
-  bool move =right();
+  bool move =right();//on effectue le déplacement
+  plat.rotation();//on remet le plateau dans le bon sens
   plat.rotation();
   plat.rotation();
-  plat.rotation();
-  a=y;
+  a=y;//on remet le personnage au bonne endroit
   y=t-x-1;
   x=a;
   return move;
@@ -79,31 +79,31 @@ bool JeuSokoban::down(){
 
 bool JeuSokoban::left(){
   int t=getTaille();
+  plat.rotation();//on effectue deux rotation pour se déplacer vers la droite
   plat.rotation();
-  plat.rotation();
-  x=t-x-1;
+  x=t-x-1;//on replace le personnage en conséquence
   y=t-y-1;
-  bool move =right();
+  bool move =right();//on effectue le déplacement
+  plat.rotation();//on remet le plateau dans le bon sens
   plat.rotation();
-  plat.rotation();
-  x=t-x-1;
+  x=t-x-1;//on remet le personnage au bonne endroit
   y=t-y-1;
   return move;
 }
 
 bool JeuSokoban::up(){
   int t=getTaille();
+  plat.rotation();//on effectue trois rotation pour se déplacer vers la droite
   plat.rotation();
   plat.rotation();
-  plat.rotation();
-  int a=y;
+  int a=y;//on replace le personnage en conséquence
   y=t-x-1;
   x=a;
-  bool move =right();
-  a= x;
+  bool move =right();//on effectue le déplacement
+  a= x;//on remet le personnage au bonne endroit
   x=t-y-1;
   y=a;
-  plat.rotation();
+  plat.rotation();//on remet le plateau dans le bon sens
   return move;
 }
 
@@ -142,20 +142,20 @@ void JeuSokoban::affiche(){
 
 bool JeuSokoban::isObj(int i,int j){
   pair<int,int> p (i,j);
-  if(find(objectifs.begin(), objectifs.end(), p) != objectifs.end())
+  if(find(objectifs.begin(), objectifs.end(), p) != objectifs.end())//on regarde si la pair est dans la liste d'objectif
     return true;
   else
     return false;
 }
 
 bool JeuSokoban::isPers(int i,int j){
-  if(i==x && j==y)
+  if(i==x && j==y)//on regarde si les coordonnées correspondent à celui du personnage
     return true;
   else
     return false;
 }
 bool JeuSokoban::endTurn(){
-  if(!(win() || loose()))
+  if(!(win() || loose()))//si on à ni gagné ni perdu on peut continuer
     return true;
   else
     return false;
