@@ -6,6 +6,14 @@
 #include <algorithm>
 #include <string>
 #include "Fonction.hpp"
+/*! \mainpage Framework
+ *   Voici un framework adapté aux jeux de plateaux.
+ * Pour une utilisation sans interface graphique : "./main"
+ * Pour une utilisation avec : "./Nomdujeu" 
+ * utilisation :- le pavé directionnel pour se déplacer
+ *              - la barre d'espace pour recommencer
+                - "r" pour le robot stupide   
+ */
 using namespace std;
 /*!
  * \class Case

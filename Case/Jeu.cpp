@@ -37,8 +37,8 @@ bool Jeu::oneMove(){
 void Jeu::play(){
   int ecrit;
   bool move;
+  cout << "6 : right(), 4: left(), 8:up(),2:down(),5:quit()\n";
   while(!(win()||loose())){
-    cout << "6 : right(), 4: left(), 8:up(),2:down(),5:quit()\n";
     cin >> ecrit;
     switch (ecrit){
     case 6:
@@ -63,8 +63,8 @@ void Jeu::play(){
       break;
     
     }
-    cout << move << "\n";
-    cout << loose() << "this the looser\n";
+    cout << "\n";
+    cout << "\n";
     if(ecrit==-1)
       break;
     if(ecrit !=-2 && move)

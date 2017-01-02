@@ -107,7 +107,7 @@ bool JeuSokoban::up(){
   return move;
 }
 
-bool JeuSokoban::win(){
+bool JeuSokoban::win(){ //on vérivie qu'il n'y a aucune case objectif vide.
   for (list<pair<int,int>>::iterator i = objectifs.begin(); i != objectifs.end(); ++i) {  
   if(plat.get(std::get<0>(*i),std::get<1>(*i))->isEmpty()){
     return false;

@@ -32,7 +32,13 @@ public:
      *  \sont contenus dans la classe JeuSokoban
      */     
   void affiche();
+  /*!
+   * \return true ssi la case x/y contient un objectif
+   */
   bool isObj(int x,int y);
+ /*!
+   * \return true ssi la case x/y contient le personnage
+   */
   bool isPers(int x,int y);
 private :
   /*! absisse de la position du personnage */ 

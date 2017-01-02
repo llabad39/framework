@@ -12,9 +12,9 @@ JeuTaquin::JeuTaquin(int t) : Jeu(t){
       int n = rand()%(l.size());      
       int num = Fonction::remove(&l, n); //on pioche le nième int de la liste 
       if(num!=t*t){
-	plat(i,j,make_shared<ChiffreTaquin>(num));
+	plat(i,j,make_shared<ChiffreTaquin>(num)); //création des chiffres
       }else{
-	plat(i,j,make_shared<Vide>());
+	plat(i,j,make_shared<Vide>()); //création de la case vide
 	x=i;
 	y=j;
       }
@@ -25,7 +25,7 @@ JeuTaquin::JeuTaquin(int t) : Jeu(t){
 
 bool JeuTaquin::right(){
   int taille = getTaille();
-  if(y==(taille-1)){
+  if(y==(taille-1)){ //si on est deja au bord
     return false;
   }else{
     plat.swap(x, y, x, y+1);
@@ -65,11 +65,11 @@ bool JeuTaquin::down(){
   return true;
 }
 
-bool JeuTaquin::win(){  // on vérivie que toutes les cases sont bien au bon endroit
+bool JeuTaquin::win(){  
   int taille = getTaille();
   for(int i=0; i<taille; i++){
     for(int j=0; j<taille; j++){
-      if(!plat.get(i,j)->isEmpty()){
+      if(!plat.get(i,j)->isEmpty()){ //si on est pas sur la case vide, on vérifie que le chiffre est bien au bon endoit
 	shared_ptr<ChiffreTaquin> c = static_pointer_cast<ChiffreTaquin>(plat.get(i,j));
 	if(!(c->getVal()==i*taille+j+1)){
 	  return false;
