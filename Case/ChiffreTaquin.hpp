@@ -5,6 +5,11 @@
 #include <ctime>
 
 using namespace std;
+/*!
+ * \class ChiffreTaquin
+ * \brief Cases chiffres du taquin ; classe différente de la classe Chiffre 
+ * \car les fonctions endTurn et moveTo diffèrent.
+ */
 class ChiffreTaquin : public Case{
 public :
   ChiffreTaquin(int v):val(v){image = to_string(v);};

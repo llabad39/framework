@@ -116,9 +116,9 @@ bool JeuSokoban::win(){
  return true;
 }
 
-void JeuSokoban::affiche(){ //le affiche de plateau ne convient pas car il faut
-  int taille = getTaille(); //afficher le personnage et les objectifs qui 
-  for(int i=0;i<taille;i++){//sont contenus dans la classe JeuSokoban
+void JeuSokoban::affiche(){ 
+  int taille = getTaille();
+  for(int i=0;i<taille;i++){
     cout << "|" ;
     for(int j =0;j<taille;j++){
       if(!plat.get(i,j)->isEmpty()){
