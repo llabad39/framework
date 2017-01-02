@@ -1,0 +1,10 @@
+<map id="Case" name="Case">
+<area shape="rect" id="node2" href="$class_caisse.html" title="Caisse" alt="" coords="59,80,121,107"/>
+<area shape="rect" id="node3" href="$class_chiffre.html" title="Chiffre capable de fusionner. " alt="" coords="147,80,208,107"/>
+<area shape="rect" id="node7" href="$class_chiffre_taquin.html" title="Cases chiffres du taquin ;. " alt="" coords="233,80,332,107"/>
+<area shape="rect" id="node8" href="$class_mur.html" title="Mur" alt="" coords="357,80,400,107"/>
+<area shape="rect" id="node9" href="$class_vide.html" title="c&#39;est la case vide, que l&#39;on retrouve dans les 3 jeux. " alt="" coords="425,80,473,107"/>
+<area shape="rect" id="node4" href="$class_chiffre_base2.html" title="représente les chiffres en base 2 " alt="" coords="5,155,104,181"/>
+<area shape="rect" id="node5" href="$class_chiffre_base3.html" title="représente les chiffres en base 3 " alt="" coords="128,155,227,181"/>
+<area shape="rect" id="node6" href="$class_chiffre_neg_base2.html" title="représente les chiffres négatifs en base 2. " alt="" coords="251,155,373,181"/>
+</map>

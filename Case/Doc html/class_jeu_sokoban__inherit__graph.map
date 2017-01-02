@@ -1,0 +1,3 @@
+<map id="JeuSokoban" name="JeuSokoban">
+<area shape="rect" id="node2" href="$class_jeu.html" title="classe abstraite qui représente un jeu " alt="" coords="31,5,73,32"/>
+</map>

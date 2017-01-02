@@ -1,0 +1,6 @@
+<map id="Chiffre" name="Chiffre">
+<area shape="rect" id="node3" href="$class_chiffre_base2.html" title="représente les chiffres en base 2 " alt="" coords="5,155,104,181"/>
+<area shape="rect" id="node4" href="$class_chiffre_base3.html" title="représente les chiffres en base 3 " alt="" coords="128,155,227,181"/>
+<area shape="rect" id="node5" href="$class_chiffre_neg_base2.html" title="représente les chiffres négatifs en base 2. " alt="" coords="251,155,373,181"/>
+<area shape="rect" id="node2" href="$class_case.html" title="classe abstraite qui représente une case du plateau " alt="" coords="151,5,204,32"/>
+</map>

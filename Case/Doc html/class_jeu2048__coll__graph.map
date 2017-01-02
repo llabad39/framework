@@ -1,0 +1,4 @@
+<map id="Jeu2048" name="Jeu2048">
+<area shape="rect" id="node2" href="$class_jeu.html" title="classe abstraite qui représente un jeu " alt="" coords="19,96,61,123"/>
+<area shape="rect" id="node3" href="$class_plateau.html" title="Classe qui contient le tableau de cases. " alt="" coords="7,5,73,32"/>
+</map>

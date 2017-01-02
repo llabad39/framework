@@ -1,0 +1,20 @@
+<map id="Vide.hpp" name="Vide.hpp">
+<area shape="rect" id="node2" href="$_plateau_8hpp.html" title="Plateau.hpp" alt="" coords="517,80,608,107"/>
+<area shape="rect" id="node19" href="$_vide_8cpp.html" title="Vide.cpp" alt="" coords="633,80,705,107"/>
+<area shape="rect" id="node3" href="$_jeu_8hpp.html" title="Jeu.hpp" alt="" coords="477,155,544,181"/>
+<area shape="rect" id="node18" href="$_plateau_8cpp.html" title="Plateau.cpp" alt="" coords="569,155,660,181"/>
+<area shape="rect" id="node4" href="$_jeu2048_8hpp.html" title="Jeu2048.hpp" alt="" coords="253,229,349,256"/>
+<area shape="rect" id="node11" href="$_jeu_8cpp.html" title="Jeu.cpp" alt="" coords="418,229,485,256"/>
+<area shape="rect" id="node12" href="$_jeu_sokoban_8hpp.html" title="JeuSokoban.hpp" alt="" coords="510,229,628,256"/>
+<area shape="rect" id="node15" href="$_jeu_taquin_8hpp.html" title="JeuTaquin.hpp" alt="" coords="817,229,924,256"/>
+<area shape="rect" id="node5" href="$2048_frame_8cpp.html" title="2048Frame.cpp" alt="" coords="5,304,116,331"/>
+<area shape="rect" id="node6" href="$_jeu2048_plus_8hpp.html" title="Jeu2048Plus.hpp" alt="" coords="141,304,264,331"/>
+<area shape="rect" id="node9" href="$_main_8cpp.html" title="Main.cpp" alt="" coords="361,379,435,405"/>
+<area shape="rect" id="node10" href="$_jeu2048_8cpp.html" title="Jeu2048.cpp" alt="" coords="339,304,435,331"/>
+<area shape="rect" id="node7" href="$2048_plus_frame_8cpp.html" title="2048PlusFrame.cpp" alt="" coords="16,379,155,405"/>
+<area shape="rect" id="node8" href="$_jeu2048_plus_8cpp.html" title="Jeu2048Plus.cpp" alt="" coords="179,379,301,405"/>
+<area shape="rect" id="node13" href="$_jeu_sokoban_8cpp.html" title="JeuSokoban.cpp" alt="" coords="510,304,628,331"/>
+<area shape="rect" id="node14" href="$_sokoban_frame_8cpp.html" title="SokobanFrame.cpp" alt="" coords="653,304,787,331"/>
+<area shape="rect" id="node16" href="$_jeu_taquin_8cpp.html" title="JeuTaquin.cpp" alt="" coords="863,304,969,331"/>
+<area shape="rect" id="node17" href="$_taquin_frame_8cpp.html" title="TaquinFrame.cpp" alt="" coords="993,304,1116,331"/>
+</map>

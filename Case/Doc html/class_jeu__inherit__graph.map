@@ -1,0 +1,6 @@
+<map id="Jeu" name="Jeu">
+<area shape="rect" id="node2" href="$class_jeu2048.html" title="Jeu2048" alt="" coords="18,80,88,107"/>
+<area shape="rect" id="node4" href="$class_jeu_sokoban.html" title="JeuSokoban" alt="" coords="113,80,207,107"/>
+<area shape="rect" id="node5" href="$class_jeu_taquin.html" title="JeuTaquin" alt="" coords="232,80,313,107"/>
+<area shape="rect" id="node3" href="$class_jeu2048_plus.html" title="Jeu2048Plus" alt="" coords="5,155,101,181"/>
+</map>

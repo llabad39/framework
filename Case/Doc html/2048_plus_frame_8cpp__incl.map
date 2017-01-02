@@ -1,0 +1,16 @@
+<map id="2048PlusFrame.cpp" name="2048PlusFrame.cpp">
+<area shape="rect" id="node3" href="$_jeu2048_plus_8hpp.html" title="Jeu2048Plus.hpp" alt="" coords="176,80,299,107"/>
+<area shape="rect" id="node4" href="$_jeu2048_8hpp.html" title="Jeu2048.hpp" alt="" coords="44,155,140,181"/>
+<area shape="rect" id="node25" href="$_chiffre_base3_8hpp.html" title="ChiffreBase3.hpp" alt="" coords="284,229,407,256"/>
+<area shape="rect" id="node26" href="$_chiffre_neg_base2_8hpp.html" title="ChiffreNegBase2.hpp" alt="" coords="164,155,311,181"/>
+<area shape="rect" id="node5" href="$_jeu_8hpp.html" title="Jeu.hpp" alt="" coords="17,229,84,256"/>
+<area shape="rect" id="node24" href="$_chiffre_base2_8hpp.html" title="ChiffreBase2.hpp" alt="" coords="82,304,204,331"/>
+<area shape="rect" id="node7" href="$_plateau_8hpp.html" title="Plateau.hpp" alt="" coords="371,304,462,331"/>
+<area shape="rect" id="node8" href="$_chiffre_8hpp.html" title="Chiffre.hpp" alt="" coords="90,379,176,405"/>
+<area shape="rect" id="node20" href="$_chiffre_taquin_8hpp.html" title="ChiffreTaquin.hpp" alt="" coords="252,379,378,405"/>
+<area shape="rect" id="node21" href="$_vide_8hpp.html" title="Vide.hpp" alt="" coords="402,379,475,405"/>
+<area shape="rect" id="node22" href="$_caisse_8hpp.html" title="Caisse.hpp" alt="" coords="594,379,682,405"/>
+<area shape="rect" id="node23" href="$_mur_8hpp.html" title="Mur.hpp" alt="" coords="500,379,570,405"/>
+<area shape="rect" id="node9" href="$_case_8hpp.html" title="Case.hpp" alt="" coords="434,453,512,480"/>
+<area shape="rect" id="node14" href="$_fonction_8hpp.html" title="Fonction.hpp" alt="" coords="560,528,656,555"/>
+</map>

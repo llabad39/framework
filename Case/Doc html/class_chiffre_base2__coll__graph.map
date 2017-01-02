@@ -1,0 +1,4 @@
+<map id="ChiffreBase2" name="ChiffreBase2">
+<area shape="rect" id="node2" href="$class_chiffre.html" title="Chiffre capable de fusionner. " alt="" coords="24,80,85,107"/>
+<area shape="rect" id="node3" href="$class_case.html" title="classe abstraite qui représente une case du plateau " alt="" coords="28,5,81,32"/>
+</map>

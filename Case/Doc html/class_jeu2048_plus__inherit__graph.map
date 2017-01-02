@@ -1,0 +1,4 @@
+<map id="Jeu2048Plus" name="Jeu2048Plus">
+<area shape="rect" id="node2" href="$class_jeu2048.html" title="Jeu2048" alt="" coords="18,80,88,107"/>
+<area shape="rect" id="node3" href="$class_jeu.html" title="classe abstraite qui représente un jeu " alt="" coords="32,5,75,32"/>
+</map>

@@ -1,0 +1,13 @@
+<map id="2048Frame.cpp" name="2048Frame.cpp">
+<area shape="rect" id="node3" href="$_jeu2048_8hpp.html" title="Jeu2048.hpp" alt="" coords="168,80,264,107"/>
+<area shape="rect" id="node4" href="$_jeu_8hpp.html" title="Jeu.hpp" alt="" coords="139,155,207,181"/>
+<area shape="rect" id="node23" href="$_chiffre_base2_8hpp.html" title="ChiffreBase2.hpp" alt="" coords="204,229,327,256"/>
+<area shape="rect" id="node6" href="$_plateau_8hpp.html" title="Plateau.hpp" alt="" coords="445,229,536,256"/>
+<area shape="rect" id="node7" href="$_chiffre_8hpp.html" title="Chiffre.hpp" alt="" coords="205,304,291,331"/>
+<area shape="rect" id="node19" href="$_chiffre_taquin_8hpp.html" title="ChiffreTaquin.hpp" alt="" coords="367,304,492,331"/>
+<area shape="rect" id="node20" href="$_vide_8hpp.html" title="Vide.hpp" alt="" coords="517,304,589,331"/>
+<area shape="rect" id="node21" href="$_caisse_8hpp.html" title="Caisse.hpp" alt="" coords="615,304,703,331"/>
+<area shape="rect" id="node22" href="$_mur_8hpp.html" title="Mur.hpp" alt="" coords="727,304,796,331"/>
+<area shape="rect" id="node8" href="$_case_8hpp.html" title="Case.hpp" alt="" coords="549,379,627,405"/>
+<area shape="rect" id="node13" href="$_fonction_8hpp.html" title="Fonction.hpp" alt="" coords="402,453,499,480"/>
+</map>

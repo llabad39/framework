@@ -3,7 +3,7 @@
 #include "Chiffre.hpp"
 /*!
  * \class ChiffreBase3
- * \brief seul le constructeur change par rapport a chiffre
+ * \brief représente les chiffres en base 3
  */
 class ChiffreBase3:public Chiffre{
 public :
