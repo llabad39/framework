@@ -1,5 +1,5 @@
 #include "Case.hpp"
 
 string Case::getImage(){
-  return image;
+  return image;//retourne la valeur de l'image
 }

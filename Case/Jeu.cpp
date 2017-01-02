@@ -5,16 +5,16 @@ int Jeu::getTaille(){return plat.getTaille();}
 void Jeu::robostupide(){
   bool joue=false;
   while(joue){
-    joue = oneMove();
+    joue = oneMove();//si on peut jouer on fais un mouvement aléatoire
   }
 }
 
 bool Jeu::oneMove(){
-  if(!(win() || loose())){
+  if(!(win() || loose())){//si l'on peut jouer
     bool play = false;
-    while(!play){
-      int n = Fonction::aleat(0,3);
-      switch (n) {
+    while(!play){//tant qu'un mouvement n'à pas été fais
+      int n = Fonction::aleat(0,3);//on prend un  chiffre entre 0 et 3 aléatoirement
+      switch (n) {//on choisie un mouvement un aléatoirement
       case 0:
 	play =right();
 	break;
@@ -37,9 +37,10 @@ bool Jeu::oneMove(){
 void Jeu::play(){
   int ecrit;
   bool move;
-  while(!(win()||loose())){
+  while(!(win()||loose())){//tant qu'on peut jouer
+    affiche(); 
     cout << "6 : right(), 4: left(), 8:up(),2:down(),5:quit()\n";
-    cin >> ecrit;
+    cin >> ecrit;//récupère le mouvement que veut faire l'utilisateur
     switch (ecrit){
     case 6:
       move=right();
@@ -55,20 +56,17 @@ void Jeu::play(){
       break;
     case 5:
       ecrit =-1;
-      move = false;
       break;
     default :
-      cout << "mauvaise commande\n";
+      cout << "mauvaise commande\n";//on effectue rien 
       ecrit = -2;
       break;
     
     }
-    cout << move << "\n";
-    cout << loose() << "this the looser\n";
+   
     if(ecrit==-1)
-      break;
+      break;//on sort de la boucle
     if(ecrit !=-2 && move)
-      endTurn();
-    affiche();    
+      endTurn();   
   }
 }

@@ -20,7 +20,6 @@ JeuTaquin::JeuTaquin(int t) : Jeu(t){
       }
     }
   }
-  affiche();
 }
 
 bool JeuTaquin::right(){
